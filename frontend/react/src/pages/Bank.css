@@ -1,0 +1,263 @@
+/* Base Layout */
+.bank-container {
+  min-height: 100vh;
+  background-color: #77d177;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.bank-card {
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+  max-width: 1200px;
+  width: 100%;
+  padding: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.left-card,
+.right-card {
+  flex: 1 1 45%;
+  text-align: center;
+}
+
+.image-box {
+  width: 200px;
+  height: 200px;
+  margin: 0 auto 1rem;
+}
+
+.image-box img.logo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #4b5563;
+  margin-bottom: 1rem;
+}
+
+.qr-box {
+  background-color: #fff;
+  padding: 0.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+  display: inline-block;
+}
+
+.qr {
+  width: 180px;
+  height: 180px;
+  object-fit: contain;
+}
+
+.caption {
+  font-size: 12px;
+  color: gray;
+  margin-top: 1rem;
+}
+
+.logo-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.bank-logo {
+  width: 200px;
+  height: 64px;
+  object-fit: contain;
+}
+
+.bank-name {
+  font-size: 1rem;
+  font-weight: bold;
+  color: red;
+}
+
+.info-card {
+  background: #f7de00;
+  padding: 1rem;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.05);
+  text-align: justify;
+}
+
+.label {
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.value {
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.note {
+  font-size: 0.9rem;
+  margin-top: 1rem;
+  color: #374151;
+  text-align: justify;
+}
+
+.thankyou {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #92400e;
+  margin-top: 1rem;
+}
+
+/* 📱 Responsive Media Queries from 300px upward */
+
+/* 300px to 399px */
+@media (max-width: 399px) {
+  .bank-card {
+    flex-direction: column;
+    padding: 0.8rem;
+  }
+
+  .left-card,
+  .right-card {
+    flex: 1 1 100%;
+  }
+
+  .image-box {
+    width: 140px;
+    height: 140px;
+  }
+
+  .qr {
+    width: 140px;
+    height: 140px;
+  }
+
+  .bank-logo {
+    width: 150px;
+    height: 50px;
+  }
+
+  .title {
+    font-size: 1rem;
+  }
+
+  .value {
+    font-size: 1rem;
+  }
+
+  .thankyou {
+    font-size: 1rem;
+  }
+}
+
+/* 400px to 599px */
+@media (min-width: 400px) and (max-width: 599px) {
+  .bank-card {
+    flex-direction: column;
+    padding: 1.5rem;
+  }
+
+  .left-card,
+  .right-card {
+    flex: 1 1 100%;
+  }
+
+  .image-box {
+    width: 160px;
+    height: 160px;
+  }
+
+  .qr {
+    width: 160px;
+    height: 160px;
+  }
+
+  .bank-logo {
+    width: 160px;
+    height: 55px;
+  }
+
+  .title {
+    font-size: 1.1rem;
+  }
+}
+
+/* 600px to 767px */
+@media (min-width: 600px) and (max-width: 767px) {
+  .bank-card {
+    flex-direction: column;
+    padding: 2rem;
+  }
+
+  .left-card,
+  .right-card {
+    flex: 1 1 100%;
+  }
+
+  .image-box {
+    width: 180px;
+    height: 180px;
+  }
+
+  .qr {
+    width: 180px;
+    height: 180px;
+  }
+}
+
+/* 768px to 991px */
+@media (min-width: 768px) and (max-width: 991px) {
+  .bank-card {
+    flex-direction: row;
+    padding: 2rem;
+  }
+
+  .left-card,
+  .right-card {
+    flex: 1 1 48%;
+  }
+}
+
+/* 992px to 1199px */
+@media (min-width: 992px) and (max-width: 1199px) {
+  .bank-card {
+    gap: 1.5rem;
+    padding: 2.5rem;
+  }
+
+  .image-box {
+    width: 200px;
+    height: 200px;
+  }
+
+  .qr {
+    width: 180px;
+    height: 180px;
+  }
+}
+
+/* 1200px and above */
+@media (min-width: 1200px) {
+  .bank-card {
+    gap: 2rem;
+    padding: 3rem;
+  }
+
+  .title {
+    font-size: 1.4rem;
+  }
+
+  .thankyou {
+    font-size: 1.4rem;
+  }
+}

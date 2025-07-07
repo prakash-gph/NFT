@@ -1,0 +1,194 @@
+.upload-container {
+    width: 100%;
+}
+
+.form-group {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0px;
+
+}
+
+.upload-input {
+    width: 0.0px;
+
+}
+
+.upload-label {
+    border: 2px solid rgb(248, 103, 12);
+    border-style: dotted;
+    border-width: 3px;
+    padding: 60px 200px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 700;
+    background-color: rgba(235, 230, 227, 0.705);
+    border-radius: 20px;
+}
+
+.upload-label img {
+    width: 60px;
+}
+
+.preview-container {
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+
+}
+
+.preview-item img {
+
+    width: 190px;
+    border-radius: 10px;
+}
+
+.preview-item {
+    display: flex;
+}
+
+.remove-btn {
+
+    background-color: rgb(251, 4, 4);
+    border: none;
+    position: relative;
+    left: 30px;
+    top: 0px;
+    text-align: center;
+    bottom: 6px;
+    height: 22px;
+    font-size: 15px;
+    width: 30px;
+    font-weight: 900;
+    border-radius: 45px;
+    cursor: pointer;
+    color: rgb(255, 255, 255);
+}
+
+.image-line {
+    margin: 20px;
+}
+
+.imageuploadbtn {
+    background-color: rgb(14, 130, 14);
+    padding: 10px;
+    font-size: large;
+    border: none;
+    cursor: pointer;
+    font-weight: 900;
+    width: 100%;
+
+}
+
+:disabled {
+    background-color: lightgreen;
+}
+
+.Uploaded-Images-views {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+.image-remove-btn2 {
+    background-color: rgb(251, 4, 4);
+    border: none;
+    position: relative;
+    left: 30px;
+    bottom: 6px;
+    font-size: 22px;
+    width: 30px;
+    font-weight: 900;
+    border-radius: 50px;
+    cursor: pointer;
+    color: white;
+}
+
+.gallery-itemImage {
+    width: 300px;
+    border-radius: 15px;
+}
+
+@media(max-width:850px) {
+    .upload-label {
+
+        border-width: 3px;
+        padding: 50px 50px;
+    }
+
+    .gallery-itemImage,
+    .preview-item img {
+        width: 150px;
+    }
+
+    .img-upload-heading{
+        font-size: medium;
+    }
+
+}
+
+@media(max-width:500px) {
+
+    .upload-label {
+
+        padding: 20px 20px;
+        margin-top: 10px;
+    }
+
+    .gallery-itemImage,
+    .preview-item img {
+        width: 100px;
+    }
+
+    .form-group h3 {
+        font-size: x-small;
+    }
+
+    .upload-label img {
+        width: 30px;
+    }
+
+    .img-upload-heading {
+        font-size: small;
+    }
+
+}
+
+
+@media(max-width:360px) {
+
+    .gallery-itemImage,
+    .preview-item img {
+        width: 70px;
+    }
+
+    .image-remove-btn2 {
+        left: 20px;
+        bottom: 3px;
+        font-size: 10px;
+        width: 20px;
+    }
+
+    .gallery-itemImage,.preview-item img{
+        border-radius: 7px;
+    }
+    .remove-btn {
+    left: 20px;
+    top: 0px;
+    bottom: 6px;
+    height: 14px;
+    font-size: 10px;
+    width: 20px;
+   
+   
+  
+}
+
+}
