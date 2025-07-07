@@ -13,7 +13,6 @@ import ScrollToTop from '../../frontend/react/src/pages/Scroll'
 function App() {
 
 
-
   const [token, setToken] = useState(localStorage.getItem("token") ? localStorage.getItem("token") : "")
   console.log(token + "hkkkkkkkkkkkkkkkkk")
 
@@ -39,12 +38,14 @@ function App() {
 
             <div className='admin-side1'>
 
-              <Routes>
-                <Route path='Upload-images' element={<AdminImageUpload />} />
-                <Route path='List-Images' element={<ListImages />}></Route>
-                <Route path='Upload-videos' element={<AdminVideosUpload />} />
+              
+                <Routes>
+                  <Route path='/Upload-images' element={<AdminImageUpload />} />
+                  <Route path='/List-Images' element={<ListImages />}></Route>
+                  <Route path='/Upload-videos' element={<AdminVideosUpload />} />
+                </Routes>
+              
 
-              </Routes>
 
             </div>
 
