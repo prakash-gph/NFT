@@ -1,5 +1,6 @@
 
-import './gallery.css';
+import './Gallery.css';
+
 import { useState, useEffect } from 'react';
 import { Lightbox } from "./Galleryanima";
 import axios from "axios"

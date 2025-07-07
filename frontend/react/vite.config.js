@@ -7,6 +7,9 @@ export default defineConfig({
   // base:'/react/',
   envPrefix: "BACKEND_URL",
   plugins: [react(),
-    envCompatible()]
+    envCompatible()],
+    resolve: {
+    extensions: ['.js', '.jsx', '.css']  // Add .css
+  }
   
 })
