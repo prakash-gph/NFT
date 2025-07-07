@@ -1,4 +1,4 @@
-import "./Adminlogin.css"
+import "./AdminLogin.css"
 import axios from "axios"
 import { useState } from 'react';
 import { ToastContainer, toast } from "react-toastify"
