@@ -10,7 +10,7 @@ const Gallery = () => {
   const [uploadedImages, setUploadedImages] = useState([])
 
   const BACKEND_URL = import.meta.env.BACKEND_URL;
-
+ //w
   useEffect(() => {
     const fetchImages = async () => {
       try {
