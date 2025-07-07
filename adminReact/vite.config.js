@@ -6,4 +6,7 @@ import envCompatible from "vite-plugin-env-compatible"
 export default defineConfig({
   envPrefix: "BACKEND_URL",
   plugins: [react(),envCompatible()],
+   resolve: {
+    extensions: ['.js', '.jsx', '.css']  // Add .css
+  }
 })
