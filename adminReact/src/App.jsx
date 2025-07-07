@@ -1,5 +1,5 @@
 
-import Components from "./components/components"
+import Components from "./components/Components"
 
 function App() {
 
