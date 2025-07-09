@@ -5,10 +5,11 @@ import axios from "axios";
 import "./list.css"
 import { ToastContainer, toast } from 'react-toastify';
 
-const BACKENDURL = import.meta.env.BACKENDURL;
+const BACKEND_URL = import.meta.env.BACKEND_URL;
 
 const ListImages = () => {
 
+console.log(BACKEND_URL)
 
   const [uploadedImages, setUploadedImages] = useState([])
 
@@ -16,7 +17,7 @@ const ListImages = () => {
   useEffect(() => {
     const fetchImages = async () => {
       try {
-        const response = await axios.get(`${BACKENDURL}api/images`);
+        const response = await axios.get(`${BACKEND_URL}/api/images`);
         setUploadedImages(response.data);
 
       } catch (error) {
@@ -34,7 +35,7 @@ const ListImages = () => {
   const handleDelete = async (id) => {
     try {
 
-      const response = await axios.delete(`${BACKENDURL}api/images/${id}`);
+      const response = await axios.delete(`${BACKEND_URL}/api/images/${id}`);
       setUploadedImages(prev => prev.filter(img => img._id !== id));
 
       response.data.success ? toast.success(response.data.message) : toast.error(response.data.message)

@@ -16,7 +16,8 @@ import multer from "multer";
 const app = express()
 dotenv.config()
 
-const port = process.env.PORT || 4500;
+const port = process.env.PORT || 4000;
+
 
 app.get("/", (req, res) => {
     res.json("api is working")

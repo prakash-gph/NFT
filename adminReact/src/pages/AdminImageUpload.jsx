@@ -5,9 +5,9 @@ import uploadImage from "../assets/uploadimg.png"
 import axios from 'axios';
 import "./AdminImageUpload.css"
 
-const BACKENDURL = import.meta.env.BACKENDURL;
+const BACKEND_URL = import.meta.env.BACKEND_URL;
 
-
+console.log(BACKEND_URL)
 
 const AdminImageUpload = () => {
   const [selectedFiles, setSelectedFiles] = useState([]);
@@ -47,7 +47,7 @@ const AdminImageUpload = () => {
         formData.append('images', file);
       });
 
-      const response = await axios.post(`${BACKENDURL}api/images`, formData, {
+      const response = await axios.post(`${BACKEND_URL}/api/images`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }
@@ -95,7 +95,7 @@ const AdminImageUpload = () => {
   const handleDelete = async (id) => {
     try {
 
-      const response = await axios.delete(`${BACKENDURL}api/images/${id}`);
+      const response = await axios.delete(`${BACKEND_URL}/api/images/${id}`);
       setUploadedImages(prev => prev.filter(img => img._id !== id));
 
       response.data.success ? toast.success(response.data.message) : toast.error(response.data.message)

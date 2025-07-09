@@ -4,7 +4,7 @@ import envCompatible from "vite-plugin-env-compatible"
 
 // https://vite.dev/config/
 export default defineConfig({
-  envPrefix: "BACKENDURL",
+  envPrefix: "BACKEND_URL",
   plugins: [react(),envCompatible()],
    resolve: {
     extensions: ['.js', '.jsx', '.css']  // Add .css

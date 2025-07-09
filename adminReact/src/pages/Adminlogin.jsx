@@ -3,11 +3,11 @@ import axios from "axios"
 import { useState } from 'react';
 import { ToastContainer, toast } from "react-toastify"
 
-const BACKENDURL = import.meta.env.BACKENDURL;
+const BACKEND_URL = import.meta.env.BACKEND_URL;
 
 const Login = ({ setToken }) => {
 
-console.log(BACKENDURL)
+console.log(BACKEND_URL)
 
   const [formData, setFormData] = useState({
     email: '',
@@ -29,7 +29,7 @@ console.log(BACKENDURL)
 
     try {
 
-      const { data } = await axios.post(`${BACKENDURL}adminLogin`, { email, password })
+      const { data } = await axios.post(`${BACKEND_URL}/adminLogin`, { email, password })
 
       data.success ? toast.success(data.message) : toast.error(data.message)
       console.log(data.token)
