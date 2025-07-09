@@ -3,12 +3,7 @@ import nationImages from "../assets/nationIma.png"
 
 const AdminNavbar = ({ setToken }) => {
 
-   
 
-    // const handleLogout = () => {
-    //     localStorage.removeItem("token", token)
-        
-    // }
 
     return (
         <div>

@@ -7,6 +7,7 @@ import connectdb from "./database/db.js"
 import { adminLogin, adminSendOtp, resetPassword } from "./adminControllers/adminAuthController.js";
 // import { uploadImages,uploadVideos } from "./adminControllers/imagesVideosControllers.js";
 import connectedCloudinary from "./nodemailer/cloudinary.js";
+
 // import uploadImages, { getImage } from "./adminControllers/adminImagesUploadControllers.js";
 // import { imaSave } from "./adminControllers/adminImagesUploadControllers.js";
 import { router } from "./adminControllers/adminImagesUploadControllers.js";
@@ -15,7 +16,7 @@ import multer from "multer";
 const app = express()
 dotenv.config()
 
-const port = process.env.PORT || 1200;
+const port = process.env.PORT || 4500;
 
 app.get("/", (req, res) => {
     res.json("api is working")
@@ -44,17 +45,29 @@ app.use((err, req, res, next) => {
         switch (err.code) {
 
             case "LIMIT_FILE_SIZE":
-                return res.json({ success: false, message: "File is large : Maximum file size 5 MB" })
+
+                if (err.field === 'video') return res.json({ success: false, message: "File is large : Maximum video size 30 MB" })
+
+               
+
+                return res.json({ success: false, message: "File is large : Maximum image size 5 MB " })
+
             default:
 
-            if(err.message){
-                return res.json({ success: false, message:"Maximum 5 images selecte" })
-            }
+                 if(err.field === 'video') return res.json({ success: false, message: " Please single file upload" })
+               
+
+               
+                if (err.field === 'images') {
+                    console.log(err)
+                    return res.json({ success: false, message: "Maximum 5 images selecte" })
+
+                }
 
         }
     }
     else {
-        return res.json({ success: false, message: err.message})
+        return res.json({ success: false, message: err.message })
     }
 
 })

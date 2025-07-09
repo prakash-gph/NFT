@@ -5,7 +5,7 @@ import envCompatible from "vite-plugin-env-compatible"
 // https://vite.dev/config/
 export default defineConfig({
   // base:'/react/',
-  envPrefix: "BACKEND_URL",
+  envPrefix: "BACKENDURL",
   plugins: [react(),
     envCompatible()],
     resolve: {

@@ -3,6 +3,7 @@ import './Gallery.css';
 
 import { useState, useEffect } from 'react';
 import { Lightbox } from "./Galleryanima";
+import { ToastContainer, toast } from "react-toastify";
 import axios from "axios"
 
 const Gallery = () => {
@@ -10,15 +11,18 @@ const Gallery = () => {
   const [selectedImg, setSelectedImg] = useState(null);
   const [uploadedImages, setUploadedImages] = useState([])
 
-  const BACKEND_URL = import.meta.env.BACKEND_URL;
+  const BACKENDURL = import.meta.env.BACKENDURL;
+
+  console.log(BACKENDURL)
  //w
   useEffect(() => {
     const fetchImages = async () => {
       try {
-        const response = await axios.get(`${BACKEND_URL}api/images`);
+        const response = await axios.get(`${BACKENDURL}api/images`);
         setUploadedImages(response.data);
 
       } catch (error) {
+        console.log(error)
         toast.error('Error fetching images:', error);
       }
     };
@@ -28,6 +32,7 @@ const Gallery = () => {
   return (
 
     <div>
+    <ToastContainer/>
       <div className='g-head'>
         <h1 style={{ textAlign: "center" }}>GALLERY</h1>
       </div>

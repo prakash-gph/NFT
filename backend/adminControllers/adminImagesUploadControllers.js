@@ -44,7 +44,7 @@ imageRouter.delete('/api/images/:id', async (req, res) => {
   try {
 
     const image = await adminUploadImageVideo.findById(req.params.id);
-    console.log("step 1")
+
     if (!image) {
       return res.status(404).json({ success: false, message: 'Image not found' });
     }
@@ -72,7 +72,9 @@ imageRouter.post('/api/video-upload', videoUpload.single('video'), async (req, r
       videoUrl: req.file.path,
       cloudinaryId: req.file.filename
     });
+
     await newVideo.save();
+
     res.status(201).json(newVideo);
   } catch (err) {
     console.error(err);
@@ -80,5 +82,43 @@ imageRouter.post('/api/video-upload', videoUpload.single('video'), async (req, r
   }
 });
 
+
+imageRouter.get("/api/video-upload", async (req, res) => {
+
+  try {
+
+    const videoFind = await Video.find().sort({ createdAt: -1 });
+
+    console.log(videoFind)
+    res.json({ videoFind })
+
+  } catch (error) {
+    res.json({ successfull: false, message: error })
+  }
+})
+
+
+imageRouter.delete("/api/video-upload/:id", async (req, res) => {
+
+  try {
+
+    const videoId = await Video.findById(req.params.id)
+
+  
+    await cloudinary.uploader.destroy(videoId.cloudinaryId)
+
+    await Video.deleteOne({ _id: req.params.id })
+
+    console.log("successfully deleted videos")
+
+   return res.json({ success: true, message: "Deleted video" })
+  }
+  catch (error) {
+
+    console.log(error)
+    res.json({ success: false, message: error })
+
+  }
+})
 
 export const router = imageRouter;

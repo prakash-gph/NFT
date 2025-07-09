@@ -4,9 +4,6 @@ import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements } 
 
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
-
-
 import Home from './pages/Home'
 import Contact from './pages/Contact'
 import About from './pages/About'
