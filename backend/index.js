@@ -18,7 +18,7 @@ dotenv.config()
 
 console.log(process.env.PORT)
 
-const port = process.env.PORT || 4000;
+const port = process.env.PORT || 3000;
 
 
 app.get("/", (req, res) => {
@@ -76,7 +76,7 @@ app.use((err, req, res, next) => {
 })
 
 
-app.listen(4000,'0.0.0.0', () => {
+app.listen(3000,() => {
     console.log(`Server is running http://localhost:${port}`)
     connectdb()
     connectedCloudinary()

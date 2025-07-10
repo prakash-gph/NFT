@@ -3,9 +3,9 @@ import axios from "axios";
 import "./Volunteer.css";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-const BACKEND_URL = import.meta.env.BACKEND_URL;
+const BACKENDURL = import.meta.env.BACKENDURL;
 
-console.log(BACKEND_URL)
+console.log(BACKENDURL)
 
 const Volunteer = () => {
     const [data, setData] = useState({
@@ -31,7 +31,7 @@ const Volunteer = () => {
         }
 
         try {
-            const response = await axios.post(`${BACKEND_URL}/become-volunteer`, {
+            const response = await axios.post(`${BACKENDURL}/become-volunteer`, {
                 name,
                 email,
                 mobile,
