@@ -5,6 +5,8 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 const BACKEND_URL = import.meta.env.BACKEND_URL;
 
+console.log(BACKEND_URL)
+
 const Volunteer = () => {
     const [data, setData] = useState({
         name: "",
