@@ -13,14 +13,15 @@ import multer from "multer";
 // import { imaSave } from "./adminControllers/adminImagesUploadControllers.js";
 
 const port = process.env.PORT || 3000;
-connectedCloudinary()
+
 dotenv.config()
 
 const app = express()
 
 console.log(process.env.PORT)
 
-connectdb().then(()=>{ 
+connectdb().then(()=>{
+
 app.get("/", (req, res) => {
     res.json("Api is Running")
 })
@@ -43,7 +44,7 @@ app.use(videoDelete);
 // app.use(getImage)
 // app.use(otpVerifiy)
 
-
+connectedCloudinary()
 app.use((err, req, res, next) => {
 
     if (err instanceof multer.MulterError) {
