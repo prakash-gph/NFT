@@ -77,8 +77,8 @@ app.use((err, req, res, next) => {
 })
 
 connectedCloudinary()
-
-app.listen(port, () => {
+ 
+app.listen(3000, () => {
     console.log(`Server is running http://localhost:${port}`)
     connectdb()
     
