@@ -19,6 +19,7 @@ const app = express()
 
 console.log(process.env.PORT)
 
+connectdb().then(()=>{ 
 app.get("/", (req, res) => {
     res.json("Api is Running")
 })
@@ -78,8 +79,13 @@ app.use((err, req, res, next) => {
 
 
  
-app.listen(3000, () => {
+ 
+app.listen(port, '0.0.0.0', () => {
     console.log(`Server is running http://localhost:${port}`)
-    connectdb()
+   
     
+})
+}).
+catch(error =>{
+ console.log(error)
 })
