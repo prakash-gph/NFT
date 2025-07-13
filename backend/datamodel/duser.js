@@ -1,36 +1,5 @@
 import mongoose from "mongoose";
 
-//CONTACT INFORMATION
-const contactInfromation = new mongoose.Schema({
-    name: {
-        type: String,
-        require: true,
-    },
-    email: {
-        type: String,
-        require: true,
-        unique: true
-    },
-    mobile: {
-        type: Number,
-        require: true,
-    },
-    city: {
-        type: String,
-        require: true,
-    },
-    message: {
-        type: String,
-        require: true
-    },
-    role: {
-        type: String,
-        default: "User contact information"
-    }
-
-}, { timestamps: true })
-
-export const contact = new mongoose.model("Contact-Collection", contactInfromation)
 //BECOME VOLUNTEER
 
 const volunteer = new mongoose.Schema({
