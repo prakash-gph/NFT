@@ -14,13 +14,13 @@ import multer from "multer";
 
 
 dotenv.config()
-const port = process.env.PORT || 6000;
+const port = process.env.PORT || 8000;
 const app = express()
 
 console.log(process.env.PORT)
 
 app.get("/", (req, res) => {
-    res.json("api is running")
+    res.json("Api is Running")
 })
 app.use(json())
 app.use(cors())
@@ -78,7 +78,7 @@ app.use((err, req, res, next) => {
 
 connectedCloudinary()
  
-app.listen(6000, () => {
+app.listen(8000, () => {
     console.log(`Server is running http://localhost:${port}`)
     connectdb()
     
