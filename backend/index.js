@@ -12,9 +12,10 @@ import multer from "multer";
 // import uploadImages, { getImage } from "./adminControllers/adminImagesUploadControllers.js";
 // import { imaSave } from "./adminControllers/adminImagesUploadControllers.js";
 
+const port = process.env.PORT || 3000;
 connectedCloudinary()
 dotenv.config()
-const port = process.env.PORT || 3000;
+
 const app = express()
 
 console.log(process.env.PORT)
@@ -80,7 +81,7 @@ app.use((err, req, res, next) => {
 
  
  
-app.listen(3000, '0.0.0.0', () => {
+app.listen(3000,() => {
     console.log(`Server is running http://localhost:${port}`)
    
     
