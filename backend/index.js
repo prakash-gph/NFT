@@ -14,7 +14,7 @@ import multer from "multer";
 
 
 dotenv.config()
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 8000;
 const app = express()
 
 console.log(process.env.PORT)
