@@ -80,7 +80,7 @@ app.use((err, req, res, next) => {
 
  
  
-app.listen(port, '0.0.0.0', () => {
+app.listen(3000, '0.0.0.0', () => {
     console.log(`Server is running http://localhost:${port}`)
    
     
