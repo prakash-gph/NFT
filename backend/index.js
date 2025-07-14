@@ -1,9 +1,9 @@
 import express, { json } from "express"
 import dotenv from "dotenv";
-import connectdb from "./database/db.js"
-import cors from "cors"
+// import connectdb from "./database/db.js"
+// import cors from "cors"
 
-import { volunteerRouters } from "./router/urouter.js";
+//import { volunteerRouters } from "./router/urouter.js";
 // import { adminLogin } from "./adminControllers/adminAuthController.js";
 // import connectedCloudinary from "./nodemailer/cloudinary.js";
 
@@ -17,11 +17,11 @@ dotenv.config()
 
 const app = express()
 
-connectdb()
+// connectdb()
 
-app.use(json())
-app.use(cors())
-app.use(volunteerRouters)
+// app.use(json())
+// app.use(cors())
+// app.use(volunteerRouters)
 //app.use(adminLogin)
 // app.use(imageUpload);
 // app.use(imageGet);
