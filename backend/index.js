@@ -3,9 +3,9 @@ import dotenv from "dotenv";
 import connectdb from "./database/db.js"
 
 import cors from "cors"
-/*
-import { volunteerRouters } from "./router/urouter.js";
 
+import { volunteerRouters } from "./router/urouter.js";
+/*
 import { adminLogin } from "./adminControllers/adminAuthController.js";
 import connectedCloudinary from "./nodemailer/cloudinary.js";
 import { imageUpload, imageGet, imageDelete, videosUpload, videoGet, videoDelete } from "./adminControllers/adminImagesUploadControllers.js";
@@ -25,9 +25,9 @@ console.log(process.env.PORT)
 
 connectdb()
    
-    // app.use(json())
+     app.use(json())
      app.use(cors())
-    // app.use(volunteerRouters)
+    app.use(volunteerRouters)
     // app.use(adminLogin)
     // app.use(imageUpload);
     // app.use(imageGet);
