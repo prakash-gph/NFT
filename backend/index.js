@@ -1,9 +1,9 @@
 import express, { json } from "express"
 import dotenv from "dotenv";
 import connectdb from "./database/db.js"
-/*
-import cors from "cors"
 
+import cors from "cors"
+/*
 import { volunteerRouters } from "./router/urouter.js";
 
 import { adminLogin } from "./adminControllers/adminAuthController.js";
@@ -26,7 +26,7 @@ console.log(process.env.PORT)
 connectdb()
    
     // app.use(json())
-    // app.use(cors())
+     app.use(cors())
     // app.use(volunteerRouters)
     // app.use(adminLogin)
     // app.use(imageUpload);
