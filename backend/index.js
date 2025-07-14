@@ -9,7 +9,7 @@ import { volunteerRouters} from "./router/urouter.js";
 
 // import connectedCloudinary from "./nodemailer/cloudinary.js";
 
-import { imageUpload, imageGet, imageDelete, videosUpload, videoGet, videoDelete } from "./adminControllers/adminImagesUploadControllers.js";
+// import { imageUpload, imageGet, imageDelete, videosUpload, videoGet, videoDelete } from "./adminControllers/adminImagesUploadControllers.js";
 
 // import multer from "multer";
 
@@ -25,12 +25,12 @@ app.use(json())
 app.use(cors())
 app.use(volunteerRouters)
 // app.use(adminLogin)
-app.use(imageUpload);
-app.use(imageGet);
-app.use(imageDelete,);
-app.use(videosUpload);
-app.use(videoGet);
-app.use(videoDelete);
+// app.use(imageUpload);
+// app.use(imageGet);
+// app.use(imageDelete,);
+// app.use(videosUpload);
+// app.use(videoGet);
+// app.use(videoDelete);
 
 //  connectedCloudinary()
 //  app.use((err, req, res, next) => {
