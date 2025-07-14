@@ -118,7 +118,7 @@ export const adminLogin = router.post('/adminLogin',async (req, res) => {
 
         const passwordCheck = await bcrypt.compare(password, check.password)
 
-        const checkAdminLogin = await email === process.env.ADMIN_EMAIL && passwordCheck
+        const checkAdminLogin = email === process.env.ADMIN_EMAIL && passwordCheck
 
         if (!checkAdminLogin) {
 
