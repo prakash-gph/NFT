@@ -20,8 +20,6 @@ dotenv.config()
 
 const app = express()
 
-console.log(process.env.PORT)
-
 connectdb()
 
 app.use(json())
