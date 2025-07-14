@@ -1,3 +1,5 @@
+/*
+
 import express from "express";
 import { adminResetPassword } from "../datamodel/duser.js";
 //import transport from "../nodemailer/nodeMailer.js";
@@ -46,6 +48,7 @@ export const adminLogin = adminRouter.post('/adminLogin',async (req, res) => {
 
 
 })
+*/
 
 /*
 export const adminSendOtp = adminRouter.post("/admin-send-otp", async (req, res) => {
