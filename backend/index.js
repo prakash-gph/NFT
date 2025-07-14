@@ -23,65 +23,65 @@ const app = express()
 console.log(process.env.PORT)
 
 connectdb()
-   
-     app.use(json())
-     app.use(cors())
-    app.use(volunteerRouters)
-     app.use(adminLogin)
-    // app.use(imageUpload);
-    // app.use(imageGet);
-    // app.use(imageDelete,);
-    // app.use(videosUpload);
-    // app.use(videoGet);
-    // app.use(videoDelete);
 
-    // app.use(adminSendOtp)
-    // app.use(resetPassword)
-    // app.use(uploadVideos)
-    // app.use(uploadImages)
-    // app.use(imaSave)
-    // app.use(getImage)
-    // app.use(otpVerifiy)
+app.use(json())
+app.use(cors())
+app.use(volunteerRouters)
+app.use(adminLogin)
+// app.use(imageUpload);
+// app.use(imageGet);
+// app.use(imageDelete,);
+// app.use(videosUpload);
+// app.use(videoGet);
+// app.use(videoDelete);
 
-    // connectedCloudinary()
-    // app.use((err, req, res, next) => {
+// app.use(adminSendOtp)
+// app.use(resetPassword)
+// app.use(uploadVideos)
+// app.use(uploadImages)
+// app.use(imaSave)
+// app.use(getImage)
+// app.use(otpVerifiy)
 
-    //     if (err instanceof multer.MulterError) {
+// connectedCloudinary()
+// app.use((err, req, res, next) => {
 
-    //         switch (err.code) {
+//     if (err instanceof multer.MulterError) {
 
-    //             case "LIMIT_FILE_SIZE":
+//         switch (err.code) {
 
-    //                 if (err.field === 'video') return res.json({ success: false, message: "File is large : Maximum video size 30 MB" })
+//             case "LIMIT_FILE_SIZE":
 
-
-
-    //                 return res.json({ success: false, message: "File is large : Maximum image size 5 MB " })
-
-    //             default:
-
-    //                 if (err.field === 'video') return res.json({ success: false, message: " Please single file upload" })
+//                 if (err.field === 'video') return res.json({ success: false, message: "File is large : Maximum video size 30 MB" })
 
 
 
-    //                 if (err.field === 'images') {
-    //                     console.log(err)
-    //                     return res.json({ success: false, message: "Maximum 5 images selecte" })
+//                 return res.json({ success: false, message: "File is large : Maximum image size 5 MB " })
 
-    //                 }
+//             default:
 
-    //         }
-    //     }
-    //     else {
-    //         return res.json({ success: false, message: err.message })
-    //     }
-
-    // })
+//                 if (err.field === 'video') return res.json({ success: false, message: " Please single file upload" })
 
 
- app.get("/", (req, res) => {
-        res.json("Api is Running")
-    })
-    app.listen(port, () => {
-        console.log(`Server is running http://localhost:${port}`)
-    })
+
+//                 if (err.field === 'images') {
+//                     console.log(err)
+//                     return res.json({ success: false, message: "Maximum 5 images selecte" })
+
+//                 }
+
+//         }
+//     }
+//     else {
+//         return res.json({ success: false, message: err.message })
+//     }
+
+// })
+
+
+app.get("/", (req, res) => {
+    res.json("Api is Running")
+})
+app.listen(port, () => {
+    console.log(`Server is running http://localhost:${port}`)
+})
