@@ -17,7 +17,7 @@ console.log(BACKENDURL)
   useEffect(() => {
     const fetchImages = async () => {
       try {
-        const response = await axios.get(`${BACKENDURL}/api/images`);
+        const response = await axios.get(`${BACKENDURL}/api/images/image-get`);
         setUploadedImages(response.data);
 
       } catch (error) {
@@ -35,7 +35,7 @@ console.log(BACKENDURL)
   const handleDelete = async (id) => {
     try {
 
-      const response = await axios.delete(`${BACKENDURL}/api/images/${id}`);
+      const response = await axios.delete(`${BACKENDURL}/api/images/image-delete/${id}`);
       setUploadedImages(prev => prev.filter(img => img._id !== id));
 
       response.data.success ? toast.success(response.data.message) : toast.error(response.data.message)

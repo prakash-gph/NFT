@@ -10,7 +10,7 @@ dotenv.config()
 const adminRouter = express.Router()
 
 
-export const adminLogin = adminRouter.post("/adminLogin", async (req, res) => {
+export const adminLogin = adminRouter.post('/adminLogin',async (req, res) => {
 
 
     const { email, password } = req.body
@@ -47,6 +47,7 @@ export const adminLogin = adminRouter.post("/adminLogin", async (req, res) => {
 
 })
 
+/*
 export const adminSendOtp = adminRouter.post("/admin-send-otp", async (req, res) => {
 
 
@@ -165,3 +166,4 @@ export const resetPassword = adminRouter.post("/reset-password", async (req, res
         return res.json("Error" + error)
     }
 })
+    */

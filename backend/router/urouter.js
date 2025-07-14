@@ -76,7 +76,7 @@ import { volunteerData } from "../datamodel/duser.js"
 // })
 
 
-export const volunteerRouters = router.post("/become-volunteer", async (req, res) => {
+export const volunteerRouters = router.post('/become-volunteer',async (req, res) => {
 
     const { name, email, mobile, city, message } = req.body
     try {

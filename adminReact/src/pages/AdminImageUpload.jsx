@@ -47,7 +47,7 @@ const AdminImageUpload = () => {
         formData.append('images', file);
       });
 
-      const response = await axios.post(`${BACKENDURL}/api/images`, formData, {
+      const response = await axios.post(`${BACKENDURL}/api/images/image-post`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }
@@ -95,7 +95,7 @@ const AdminImageUpload = () => {
   const handleDelete = async (id) => {
     try {
 
-      const response = await axios.delete(`${BACKENDURL}/api/images/${id}`);
+      const response = await axios.delete(`${BACKENDURL}/api/images/image-delete/${id}`);
       setUploadedImages(prev => prev.filter(img => img._id !== id));
 
       response.data.success ? toast.success(response.data.message) : toast.error(response.data.message)

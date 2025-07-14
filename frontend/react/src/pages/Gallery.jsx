@@ -18,7 +18,7 @@ const Gallery = () => {
   useEffect(() => {
     const fetchImages = async () => {
       try {
-        const response = await axios.get(`${BACKENDURL}/api/images`);
+        const response = await axios.get(`${BACKENDURL}/api/images/image-get`);
         setUploadedImages(response.data);
 
       } catch (error) {

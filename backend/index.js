@@ -3,7 +3,7 @@ import cors from "cors"
 import dotenv from "dotenv";
 import { volunteerRouters } from "./router/urouter.js";
 import connectdb from "./database/db.js"
-import { adminLogin, adminSendOtp, resetPassword } from "./adminControllers/adminAuthController.js";
+import { adminLogin } from "./adminControllers/adminAuthController.js";
 import connectedCloudinary from "./nodemailer/cloudinary.js";
 import { imageUpload, imageGet, imageDelete, videosUpload, videoGet, videoDelete } from "./adminControllers/adminImagesUploadControllers.js";
 import multer from "multer";
@@ -20,74 +20,67 @@ const app = express()
 
 console.log(process.env.PORT)
 
-connectdb().then(()=>{
-
-app.get("/", (req, res) => {
-    res.json("Api is Running")
-})
-app.use(json())
-app.use(cors())
-app.use(volunteerRouters)
-app.use(adminLogin)
-app.use(adminSendOtp)
-app.use(resetPassword)
-app.use(imageUpload);
-app.use(imageGet);
-app.use(imageDelete);
-app.use(videosUpload);
-app.use(videoGet);
-app.use(videoDelete);
-
-// app.use(uploadVideos)
-// app.use(uploadImages)
-// app.use(imaSave)
-// app.use(getImage)
-// app.use(otpVerifiy)
-
-connectedCloudinary()
-app.use((err, req, res, next) => {
-
-    if (err instanceof multer.MulterError) {
-
-        switch (err.code) {
-
-            case "LIMIT_FILE_SIZE":
-
-                if (err.field === 'video') return res.json({ success: false, message: "File is large : Maximum video size 30 MB" })
-
-
-
-                return res.json({ success: false, message: "File is large : Maximum image size 5 MB " })
-
-            default:
-
-                if (err.field === 'video') return res.json({ success: false, message: " Please single file upload" })
-
-
-
-                if (err.field === 'images') {
-                    console.log(err)
-                    return res.json({ success: false, message: "Maximum 5 images selecte" })
-
-                }
-
-        }
-    }
-    else {
-        return res.json({ success: false, message: err.message })
-    }
-
-})
-
-
- 
- 
-app.listen(3000,() => {
-    console.log(`Server is running http://localhost:${port}`)
+connectdb()
    
-    
-})
-}).
-catch(error =>{
- console.log(error)
-})
+    app.use(json())
+    app.use(cors())
+    app.use(volunteerRouters)
+    app.use(adminLogin)
+    app.use(imageUpload);
+    app.use(imageGet);
+    app.use(imageDelete,);
+    app.use(videosUpload);
+    app.use(videoGet);
+    app.use(videoDelete);
+
+    // app.use(adminSendOtp)
+    // app.use(resetPassword)
+    // app.use(uploadVideos)
+    // app.use(uploadImages)
+    // app.use(imaSave)
+    // app.use(getImage)
+    // app.use(otpVerifiy)
+
+    connectedCloudinary()
+    app.use((err, req, res, next) => {
+
+        if (err instanceof multer.MulterError) {
+
+            switch (err.code) {
+
+                case "LIMIT_FILE_SIZE":
+
+                    if (err.field === 'video') return res.json({ success: false, message: "File is large : Maximum video size 30 MB" })
+
+
+
+                    return res.json({ success: false, message: "File is large : Maximum image size 5 MB " })
+
+                default:
+
+                    if (err.field === 'video') return res.json({ success: false, message: " Please single file upload" })
+
+
+
+                    if (err.field === 'images') {
+                        console.log(err)
+                        return res.json({ success: false, message: "Maximum 5 images selecte" })
+
+                    }
+
+            }
+        }
+        else {
+            return res.json({ success: false, message: err.message })
+        }
+
+    })
+
+
+ app.get("/", (req, res) => {
+        res.json("Api is Running")
+    })
+
+    app.listen(port, () => {
+        console.log(`Server is running http://localhost:${port}`)
+    })

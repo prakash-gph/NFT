@@ -6,7 +6,7 @@ import cloudinary from "cloudinary"
 
 const imageRouter = express.Router()
 
-export const imageUpload = imageRouter.post('/api/images', parser.array('images', 5), async (req, res) => {
+export const imageUpload = imageRouter.post('/api/images/image-post',parser.array('images', 5), async (req, res) => {
   try {
     if (!req.files || req.files.length === 0) {
       return res.status(400).json({ success: false, message: 'No images uploaded' });
@@ -30,7 +30,7 @@ export const imageUpload = imageRouter.post('/api/images', parser.array('images'
 });
 
 // GET Endpoint - Retrieve all images
-export const imageGet = imageRouter.get('/api/images', async (req, res) => {
+export const imageGet = imageRouter.get('/api/images/image-get',async (req, res) => {
   try {
     const images = await adminUploadImageVideo.find().sort({ createdAt: -1 });
     res.json(images);
@@ -40,7 +40,7 @@ export const imageGet = imageRouter.get('/api/images', async (req, res) => {
 });
 
 // DELETE Endpoint - Delete image
-export const imageDelete = imageRouter.delete('/api/images/:id', async (req, res) => {
+export const imageDelete = imageRouter.delete('/api/images/image-delete/:id',async (req, res) => {
   try {
 
     const image = await adminUploadImageVideo.findById(req.params.id);
@@ -62,7 +62,7 @@ export const imageDelete = imageRouter.delete('/api/images/:id', async (req, res
   }
 });
 
-export const videosUpload = imageRouter.post('/api/video-upload', videoUpload.single('video'), async (req, res) => {
+export const videosUpload = imageRouter.post('/api/video-upload/video-post',videoUpload.single('video'), async (req, res) => {
   try {
 
     console.log(req.file.path, req.body.title, req.file.filename)
@@ -83,7 +83,7 @@ export const videosUpload = imageRouter.post('/api/video-upload', videoUpload.si
 });
 
 
-export const videoGet = imageRouter.get("/api/video-upload", async (req, res) => {
+export const videoGet = imageRouter.get('/api/video-upload/video-post',async (req, res) => {
 
   try {
 
@@ -98,20 +98,20 @@ export const videoGet = imageRouter.get("/api/video-upload", async (req, res) =>
 })
 
 
-export const videoDelete = imageRouter.delete("/api/video-upload/:id", async (req, res) => {
+export const videoDelete = imageRouter.delete('/api/video-upload/video-delete/:id',async (req, res) => {
 
   try {
 
     const videoId = await Video.findById(req.params.id)
 
-  
+
     await cloudinary.uploader.destroy(videoId.cloudinaryId)
 
     await Video.deleteOne({ _id: req.params.id })
 
     console.log("successfully deleted videos")
 
-   return res.json({ success: true, message: "Deleted video" })
+    return res.json({ success: true, message: "Deleted video" })
   }
   catch (error) {
 
