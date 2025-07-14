@@ -1,5 +1,4 @@
 import express from "express"
-// import { upload } from "../nodemailer/multer.js"
 import { adminUploadImageVideo, Video } from "../datamodel/duser.js"
 import { parser, videoUpload } from "../nodemailer/multer.js"
 import cloudinary from "cloudinary"

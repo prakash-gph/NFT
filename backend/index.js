@@ -5,14 +5,10 @@ import cors from "cors"
 
 import { volunteerRouters } from "./router/urouter.js";
 import { adminLogin } from "./adminControllers/adminAuthController.js";
-/*
 import connectedCloudinary from "./nodemailer/cloudinary.js";
+/*
 import { imageUpload, imageGet, imageDelete, videosUpload, videoGet, videoDelete } from "./adminControllers/adminImagesUploadControllers.js";
 import multer from "multer";
-// import {otpVerifiy} from "./router/urouter.js"
-// import { uploadImages,uploadVideos } from "./adminControllers/imagesVideosControllers.js";
-// import uploadImages, { getImage } from "./adminControllers/adminImagesUploadControllers.js";
-// import { imaSave } from "./adminControllers/adminImagesUploadControllers.js";
 */
 const port = process.env.PORT || 3000;
 
@@ -33,15 +29,7 @@ app.use(adminLogin)
 // app.use(videoGet);
 // app.use(videoDelete);
 
-// app.use(adminSendOtp)
-// app.use(resetPassword)
-// app.use(uploadVideos)
-// app.use(uploadImages)
-// app.use(imaSave)
-// app.use(getImage)
-// app.use(otpVerifiy)
-
-// connectedCloudinary()
+ connectedCloudinary()
 // app.use((err, req, res, next) => {
 
 //     if (err instanceof multer.MulterError) {
