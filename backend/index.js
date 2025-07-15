@@ -3,7 +3,7 @@ import dotenv from "dotenv";
 import connectdb from "./database/db.js"
 import cors from "cors"
 
-import { volunteerRouters ,adminLogin} from "./router/urouter.js";
+import { volunteerRouters } from "./router/urouter.js";
 
 //import { adminLogin } from "./adminControllers/adminAuthController.js";
 
@@ -24,7 +24,7 @@ connectdb()
 app.use(json())
 app.use(cors())
 app.use("/api/volunteer", volunteerRouters)
-app.use("/api/admin",adminLogin)
+// app.use("/api/admin",adminLogin)
 //app.use(imageUpload);
 //app.use("/api/images", imageGet);
 //app.use(imageDelete);
