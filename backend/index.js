@@ -67,7 +67,7 @@ app.use("/api", adminLogin)
 //     }
 
 //  })
-
+//
 
 app.get("/", (req, res) => {
     res.json("Api is running  ")
