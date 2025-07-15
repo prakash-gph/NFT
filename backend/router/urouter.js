@@ -2,7 +2,7 @@ import express from "express"
 
 //import dotenv from "dotenv";
 
-// import { volunteerData } from "../datamodel/duser.js"
+import { volunteerData } from "../datamodel/duser.js"
 // import { adminResetPassword } from "../datamodel/duser.js";
 // import bcrypt from "bcrypt";
 // import jwt from "jsonwebtoken"
@@ -84,36 +84,36 @@ const router = express.Router()
 //     }
 
 // })
- 
-
- export const routers =  router.get('/route', (req, res) => res.send('Router Working!'));
 
 
-// export const volunteerRouters = router.post('/become-volunteer', async (req, res) => {
-          
+export const routers = router.get('/route', (req, res) => res.send('Router Working!'));
 
-//     const { name, email, mobile, city, message } = req.body
-//     try {
 
-//         const check = await volunteerData.findOne({ email })
-//         if (check) {
-//             return res.json({
-//                 error: "Email is already Exist"
-//             })
-//         }
-//         const volunteerDatas = new volunteerData({
-//             name: name, email: email, mobile: mobile, city: city, message: message
-//         })
+export const volunteerRouters = router.post('/become-volunteer', async (req, res) => {
 
-//         const storeVolunteerDatas = await volunteerDatas.save()
 
-//         return res.json(storeVolunteerDatas)
+    const { name, email, mobile, city, message } = req.body
+    try {
 
-//     }
-//     catch (error) {
-//         console.log("API ERRORS: " + error)
-//     }
-// })
+        const check = await volunteerData.findOne({ email })
+        if (check) {
+            return res.json({
+                error: "Email is already Exist"
+            })
+        }
+        const volunteerDatas = new volunteerData({
+            name: name, email: email, mobile: mobile, city: city, message: message
+        })
+
+        const storeVolunteerDatas = await volunteerDatas.save()
+
+        return res.json(storeVolunteerDatas)
+
+    }
+    catch (error) {
+        console.log("API ERRORS: " + error)
+    }
+})
 
 // export const adminLogin = router.post('/adminLogin',async (req, res) => {
 
