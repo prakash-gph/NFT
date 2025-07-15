@@ -1,11 +1,14 @@
 import express from "express"
-import { volunteerData } from "../datamodel/duser.js"
-import { adminResetPassword } from "../datamodel/duser.js";
-import bcrypt from "bcrypt";
-import dotenv from "dotenv";
-import jwt from "jsonwebtoken"
 
-dotenv.config()
+//import dotenv from "dotenv";
+
+// import { volunteerData } from "../datamodel/duser.js"
+// import { adminResetPassword } from "../datamodel/duser.js";
+// import bcrypt from "bcrypt";
+// import jwt from "jsonwebtoken"
+
+//dotenv.config()
+
 const router = express.Router()
 
 // import twilio from "twilio"
@@ -86,63 +89,63 @@ const router = express.Router()
  const routers =  router.get('/route', (req, res) => res.send('Router Working!'));
 
 
-export const volunteerRouters = router.post('/become-volunteer', async (req, res) => {
+// export const volunteerRouters = router.post('/become-volunteer', async (req, res) => {
           
 
-    const { name, email, mobile, city, message } = req.body
-    try {
+//     const { name, email, mobile, city, message } = req.body
+//     try {
 
-        const check = await volunteerData.findOne({ email })
-        if (check) {
-            return res.json({
-                error: "Email is already Exist"
-            })
-        }
-        const volunteerDatas = new volunteerData({
-            name: name, email: email, mobile: mobile, city: city, message: message
-        })
+//         const check = await volunteerData.findOne({ email })
+//         if (check) {
+//             return res.json({
+//                 error: "Email is already Exist"
+//             })
+//         }
+//         const volunteerDatas = new volunteerData({
+//             name: name, email: email, mobile: mobile, city: city, message: message
+//         })
 
-        const storeVolunteerDatas = await volunteerDatas.save()
+//         const storeVolunteerDatas = await volunteerDatas.save()
 
-        return res.json(storeVolunteerDatas)
+//         return res.json(storeVolunteerDatas)
 
-    }
-    catch (error) {
-        console.log("API ERRORS: " + error)
-    }
-})
+//     }
+//     catch (error) {
+//         console.log("API ERRORS: " + error)
+//     }
+// })
 
-export const adminLogin = router.post('/adminLogin',async (req, res) => {
+// export const adminLogin = router.post('/adminLogin',async (req, res) => {
 
-    const { email, password } = req.body
+//     const { email, password } = req.body
 
-    console.log(email, password)
+//     console.log(email, password)
 
-    try {
-        const check = await adminResetPassword.findOne()
+//     try {
+//         const check = await adminResetPassword.findOne()
 
-        const passwordCheck = await bcrypt.compare(password, check.password)
+//         const passwordCheck = await bcrypt.compare(password, check.password)
 
-        const checkAdminLogin = email === process.env.ADMIN_EMAIL && passwordCheck
+//         const checkAdminLogin = email === process.env.ADMIN_EMAIL && passwordCheck
 
-        if (!checkAdminLogin) {
+//         if (!checkAdminLogin) {
 
-            return res.json({ success: false, message: "Invalid email or password", token: "" })
+//             return res.json({ success: false, message: "Invalid email or password", token: "" })
 
-        }
-        else {
+//         }
+//         else {
 
-            const token = await jwt.sign(email + password, process.env.JSONWEB_SECRET)
+//             const token = await jwt.sign(email + password, process.env.JSONWEB_SECRET)
 
-            return res.json({ success: true, message: "login successfull ", token: token })
+//             return res.json({ success: true, message: "login successfull ", token: token })
 
-        }
-    }
+//         }
+//     }
 
-    catch (error) {
-        return res.json(`Admin Login Error ${error}`)
+//     catch (error) {
+//         return res.json(`Admin Login Error ${error}`)
 
-    }
-})
+//     }
+// })
 
 export default routers
