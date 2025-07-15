@@ -84,7 +84,7 @@ const router = express.Router()
 
 
 export const volunteerRouters = router.post('/become-volunteer', async (req, res) => {
-           res.json("volunteer pages")
+          
 
     const { name, email, mobile, city, message } = req.body
     try {

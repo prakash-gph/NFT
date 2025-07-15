@@ -29,7 +29,8 @@ export const imageUpload = imageRouter.post('/api/images/image-post',parser.arra
 });
 
 // GET Endpoint - Retrieve all images
-export const imageGet = imageRouter.get('/api/images/image-get',async (req, res) => {
+export const imageGet = imageRouter.get('/image-get',async (req, res) => {
+
   try {
     const images = await adminUploadImageVideo.find().sort({ createdAt: -1 });
     res.json(images);
