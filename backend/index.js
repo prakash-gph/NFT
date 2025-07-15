@@ -27,7 +27,7 @@ app.use(volunteerRouters)
 // app.use(adminLogin)
 // app.use(imageUpload);
 // app.use(imageGet);
-// app.use(imageDelete,);
+// app.use(imageDelete);
 // app.use(videosUpload);
 // app.use(videoGet);
 // app.use(videoDelete);
