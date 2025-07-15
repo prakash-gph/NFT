@@ -31,7 +31,6 @@ app.use("/api/volunteer", volunteerRouters)
 //app.use(videosUpload);
 //app.use(videoGet);
 //app.use(videoDelete);
-
 //  connectedCloudinary()
 //  app.use((err, req, res, next) => {
 
@@ -69,7 +68,7 @@ app.use("/api/volunteer", volunteerRouters)
 
 
 app.get("/", (req, res) => {
-    res.json("Api is Running")
+    res.json("Api is running  ")
 })
 app.listen(port, () => {
     console.log(`Server is running http://localhost:${port}`)
