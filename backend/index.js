@@ -4,7 +4,7 @@ import connectdb from "./database/db.js"
 import cors from "cors"
 
 import { volunteerRouters } from "./router/urouter.js";
-
+import { imageGet } from "./adminControllers/adminImagesUploadControllers.js";
 //import { adminLogin } from "./adminControllers/adminAuthController.js";
 
 // import connectedCloudinary from "./nodemailer/cloudinary.js";
@@ -26,7 +26,7 @@ app.use(cors())
  app.use("/api/volunteer", volunteerRouters)
 // app.use("/api/admin",adminLogin)
 //app.use(imageUpload);
-//app.use("/api/images", imageGet);
+app.use("/api/images", imageGet);
 //app.use(imageDelete);
 //app.use(videosUpload);
 //app.use(videoGet);
