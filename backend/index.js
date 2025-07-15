@@ -21,12 +21,19 @@ const app = express()
 
 connectdb()
 
+
+const router = express.Router();
+
+router.get('/route', (req, res) => res.send('Working!'));
+
+app.use(router);
+
 app.use(json())
 app.use(cors())
- app.use("/api/volunteer", volunteerRouters)
+//  app.use("/api/volunteer", volunteerRouters)
 // app.use("/api/admin",adminLogin)
 //app.use(imageUpload);
-app.use("/api/images", imageGet);
+// app.use("/api/images", imageGet);
 //app.use(imageDelete);
 //app.use(videosUpload);
 //app.use(videoGet);
