@@ -3,14 +3,14 @@ import dotenv from "dotenv";
 import connectdb from "./database/db.js"
 import cors from "cors"
 
-import { volunteerRouters } from "./router/urouter.js";
+import { volunteerRouters ,adminLogin} from "./router/urouter.js";
 
 //import { adminLogin } from "./adminControllers/adminAuthController.js";
 
 // import connectedCloudinary from "./nodemailer/cloudinary.js";
 
 //import { imageUpload, imageGet, imageDelete, videosUpload, videoGet, videoDelete } from "./adminControllers/adminImagesUploadControllers.js";
-import { imageGet } from "./adminControllers/adminImagesUploadControllers.js";
+
 // import multer from "multer";
 
 const port = process.env.PORT || 3000;
@@ -24,9 +24,9 @@ connectdb()
 app.use(json())
 app.use(cors())
 app.use("/api/volunteer", volunteerRouters)
-//app.use(adminLogin)
+app.use("/api/admin",adminLogin)
 //app.use(imageUpload);
-app.use("/api/images", imageGet);
+//app.use("/api/images", imageGet);
 //app.use(imageDelete);
 //app.use(videosUpload);
 //app.use(videoGet);
