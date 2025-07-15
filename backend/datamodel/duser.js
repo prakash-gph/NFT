@@ -50,7 +50,7 @@ const adminSendOtp = new mongoose.Schema({
         type: Number,
         default: 0
     }
-})
+}, { timestamps: true })
 
 
 export const adminResetPassword = mongoose.model("adminSendOtp", adminSendOtp)
