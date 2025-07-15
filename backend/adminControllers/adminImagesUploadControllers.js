@@ -1,3 +1,4 @@
+/*
 import express from "express"
 import { adminUploadImageVideo, Video } from "../datamodel/duser.js"
 import { parser, videoUpload } from "../nodemailer/multer.js"
@@ -121,3 +122,4 @@ export const videoDelete = imageRouter.delete('/api/video-upload/video-delete/:i
   }
 })
 
+*/
