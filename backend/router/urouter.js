@@ -86,7 +86,7 @@ const router = express.Router()
 // })
  
 
- const routers =  router.get('/route', (req, res) => res.send('Router Working!'));
+ export const routers =  router.get('/route', (req, res) => res.send('Router Working!'));
 
 
 // export const volunteerRouters = router.post('/become-volunteer', async (req, res) => {
@@ -148,4 +148,3 @@ const router = express.Router()
 //     }
 // })
 
-export default routers

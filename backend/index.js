@@ -3,7 +3,7 @@ import dotenv from "dotenv";
 import connectdb from "./database/db.js"
 import cors from "cors"
 
-import routers  from "./router/urouter.js";
+import {routers } from "./router/urouter.js";
 //import { volunteerRouters } from "./router/urouter.js";
 //import { imageGet } from "./adminControllers/adminImagesUploadControllers.js";
 //import { adminLogin } from "./adminControllers/adminAuthController.js";
