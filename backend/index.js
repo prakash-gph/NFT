@@ -22,10 +22,9 @@ const app = express()
 
 connectdb()
 
-app.use(routers);
-
 app.use(json())
 app.use(cors())
+app.use(routers);
 //  app.use("/api/volunteer", volunteerRouters)
 // app.use("/api/admin",adminLogin)
 //app.use(imageUpload);
