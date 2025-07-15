@@ -84,9 +84,11 @@ const router = express.Router()
 
 
 export const volunteerRouters = router.post('/become-volunteer', async (req, res) => {
+           res.json("volunteer pages")
 
     const { name, email, mobile, city, message } = req.body
     try {
+
         const check = await volunteerData.findOne({ email })
         if (check) {
             return res.json({
