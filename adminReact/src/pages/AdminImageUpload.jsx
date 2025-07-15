@@ -83,6 +83,7 @@ const AdminImageUpload = () => {
       setPreviews([]);
       toast.success("Upload Successfully ")
     } catch (error) {
+      console.log(error)
       toast.error('Upload failed:', error);
 
     } finally {
