@@ -32,7 +32,7 @@ const volunteer = new mongoose.Schema({
 }, { timestamps: true })
 
 export const volunteerData = mongoose.model("Volunteer-Datas", volunteer)
-
+/*
 const adminSendOtp = new mongoose.Schema({
     email: {
         type: String,
@@ -54,7 +54,7 @@ const adminSendOtp = new mongoose.Schema({
 
 
 export const adminResetPassword = mongoose.model("adminSendOtp", adminSendOtp)
-
+*/
 const adminImageVideos = new mongoose.Schema({
 
     url: { type: String, required: true },

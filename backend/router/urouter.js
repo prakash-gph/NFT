@@ -2,9 +2,8 @@ import express from "express"
 
 import dotenv from "dotenv";
 
-import { volunteerData ,adminResetPassword} from "../datamodel/duser.js"
+import { volunteerData} from "../datamodel/duser.js"
 
- import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken"
 
 dotenv.config()
@@ -93,6 +92,7 @@ export const volunteerRouters = router.post('/become-volunteer', async (req, res
 
 
     const { name, email, mobile, city, message } = req.body
+    console.log(name)
     try {
 
         const check = await volunteerData.findOne({ email })
@@ -115,18 +115,19 @@ export const volunteerRouters = router.post('/become-volunteer', async (req, res
     }
 })
 
-export const adminLogin = router.post('/adminLogin',async (req, res) => {
+export const adminLogin = router.post('/adminLogin', async (req, res) => {
 
     const { email, password } = req.body
 
     console.log(email, password)
 
     try {
-        const check = await adminResetPassword.findOne()
 
-        const passwordCheck = await bcrypt.compare(password, check.password)
+        // const check = await adminResetPassword.findOne()
 
-        const checkAdminLogin = email === process.env.ADMIN_EMAIL && passwordCheck
+        // const passwordCheck = await bcrypt.compare(password, check.password)
+
+        const checkAdminLogin = email === process.env.ADMIN_EMAIL && password === process.env.ADMIN_PASS
 
         if (!checkAdminLogin) {
 
