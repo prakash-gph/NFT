@@ -29,7 +29,7 @@ console.log(BACKENDURL)
 
     try {
 
-      const { data } = await axios.post(`${BACKENDURL}/adminLogin`, { email, password })
+      const { data } = await axios.post(`${BACKENDURL}/api/adminLogin`, { email, password })
 
       data.success ? toast.success(data.message) : toast.error(data.message)
       console.log(data.token)

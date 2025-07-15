@@ -1,13 +1,13 @@
 import express from "express"
 
-//import dotenv from "dotenv";
+import dotenv from "dotenv";
 
-import { volunteerData } from "../datamodel/duser.js"
-// import { adminResetPassword } from "../datamodel/duser.js";
-// import bcrypt from "bcrypt";
-// import jwt from "jsonwebtoken"
+import { volunteerData ,adminResetPassword} from "../datamodel/duser.js"
 
-//dotenv.config()
+ import bcrypt from "bcrypt";
+import jwt from "jsonwebtoken"
+
+dotenv.config()
 
 const router = express.Router()
 
@@ -115,36 +115,36 @@ export const volunteerRouters = router.post('/become-volunteer', async (req, res
     }
 })
 
-// export const adminLogin = router.post('/adminLogin',async (req, res) => {
+export const adminLogin = router.post('/adminLogin',async (req, res) => {
 
-//     const { email, password } = req.body
+    const { email, password } = req.body
 
-//     console.log(email, password)
+    console.log(email, password)
 
-//     try {
-//         const check = await adminResetPassword.findOne()
+    try {
+        const check = await adminResetPassword.findOne()
 
-//         const passwordCheck = await bcrypt.compare(password, check.password)
+        const passwordCheck = await bcrypt.compare(password, check.password)
 
-//         const checkAdminLogin = email === process.env.ADMIN_EMAIL && passwordCheck
+        const checkAdminLogin = email === process.env.ADMIN_EMAIL && passwordCheck
 
-//         if (!checkAdminLogin) {
+        if (!checkAdminLogin) {
 
-//             return res.json({ success: false, message: "Invalid email or password", token: "" })
+            return res.json({ success: false, message: "Invalid email or password", token: "" })
 
-//         }
-//         else {
+        }
+        else {
 
-//             const token = await jwt.sign(email + password, process.env.JSONWEB_SECRET)
+            const token = await jwt.sign(email + password, process.env.JSONWEB_SECRET)
 
-//             return res.json({ success: true, message: "login successfull ", token: token })
+            return res.json({ success: true, message: "login successfull ", token: token })
 
-//         }
-//     }
+        }
+    }
 
-//     catch (error) {
-//         return res.json(`Admin Login Error ${error}`)
+    catch (error) {
+        return res.json(`Admin Login Error ${error}`)
 
-//     }
-// })
+    }
+})
 
