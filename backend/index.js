@@ -2,8 +2,8 @@ import express, { json } from "express"
 import dotenv from "dotenv";
 import connectdb from "./database/db.js"
 import cors from "cors"
-const router = express.Router();
 
+import { routers } from "./router/urouter.js";
 //import { volunteerRouters } from "./router/urouter.js";
 //import { imageGet } from "./adminControllers/adminImagesUploadControllers.js";
 //import { adminLogin } from "./adminControllers/adminAuthController.js";
@@ -22,12 +22,7 @@ const app = express()
 
 connectdb()
 
-
-
-
-router.get('/route', (req, res) => res.send('Working!'));
-
-app.use(router);
+app.use(routers);
 
 app.use(json())
 app.use(cors())

@@ -81,6 +81,9 @@ const router = express.Router()
 //     }
 
 // })
+ 
+
+export const routers =  router.get('/route', (req, res) => res.send('Routers Working!'));
 
 
 export const volunteerRouters = router.post('/become-volunteer', async (req, res) => {
