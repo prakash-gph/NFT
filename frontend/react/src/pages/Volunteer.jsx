@@ -31,7 +31,7 @@ const Volunteer = () => {
         }
 
         try {
-            const response = await axios.post(`${BACKENDURL}/become-volunteer`, {
+            const response = await axios.post(`${BACKENDURL}/api/become-volunteer`, {
                 name,
                 email,
                 mobile,
