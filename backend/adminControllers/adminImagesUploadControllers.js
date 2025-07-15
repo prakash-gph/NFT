@@ -1,4 +1,4 @@
-/*
+
 import express from "express"
 import { adminUploadImageVideo, Video } from "../datamodel/duser.js"
 import { parser, videoUpload } from "../nodemailer/multer.js"
@@ -6,7 +6,7 @@ import cloudinary from "cloudinary"
 
 const imageRouter = express.Router()
 
-export const imageUpload = imageRouter.post('/api/images/image-post',parser.array('images', 5), async (req, res) => {
+export const imageUpload = imageRouter.post('/image-post',parser.array('images', 5), async (req, res) => {
   try {
     if (!req.files || req.files.length === 0) {
       return res.status(400).json({ success: false, message: 'No images uploaded' });
@@ -41,7 +41,7 @@ export const imageGet = imageRouter.get('/image-get',async (req, res) => {
 });
 
 // DELETE Endpoint - Delete image
-export const imageDelete = imageRouter.delete('/api/images/image-delete/:id',async (req, res) => {
+export const imageDelete = imageRouter.delete('/image-delete/:id',async (req, res) => {
   try {
 
     const image = await adminUploadImageVideo.findById(req.params.id);
@@ -122,4 +122,3 @@ export const videoDelete = imageRouter.delete('/api/video-upload/video-delete/:i
   }
 })
 
-*/

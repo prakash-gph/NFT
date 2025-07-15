@@ -1,4 +1,4 @@
-/*
+
 import multer from "multer"
 import { storage } from "./cloudinary.js";
 import { videoStorage } from "./cloudinary.js";
@@ -30,4 +30,3 @@ export const videoUpload = multer({
 
 })
 
-*/
