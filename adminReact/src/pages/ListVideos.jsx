@@ -4,7 +4,8 @@ import { useEffect } from "react";
 import axios from "axios";
 import "./ListVideo.css"
 import { ToastContainer, toast } from 'react-toastify';
-import ReactPlayer from "react-player"
+
+// import ReactPlayer from "react-player"
 
 const BACKENDURL = import.meta.env.BACKENDURL;
 
@@ -58,15 +59,15 @@ const ListVideos = () => {
                 {uploadedVideos.map((video) => (
                     <div key={video._id} className="video-gallery-items">
 
-                        <button
+                        {/* <button
                             className="video-remove-btn3"
                             onClick={() => handleDelete(video._id)}
                             title="Delete videos"
                         >
                             &times;
-                        </button>
+                        </button> */}
 
-                        <ReactPlayer url={video.videoUrl} controls={true}  className="video"/>
+                        {/* <ReactPlayer url={video.videoUrl} controls={true}  className="video"/> */}
                     </div>
 
                 ))}

@@ -7,14 +7,9 @@ export default defineConfig({
   // base:'/react/',
   envPrefix: "BACKENDURL",
   plugins: [react(),
-    envCompatible()],
-    resolve: {
-    extensions: ['.js', '.jsx', '.css']  // Add .css
-  },
-   build: {
-    rollupOptions: {
-      external: ['react-player'] 
-    }
+  envCompatible()],
+  resolve: {
+    extensions: ['.js', '.jsx', '.css'],
   }
-  
-})
+  })
+

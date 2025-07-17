@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import axios from "axios";
 import "./Events.css"
 import { ToastContainer, toast } from 'react-toastify';
+
 import ReactPlayer from "react-player"
 
 const BACKENDURL = import.meta.env.BACKENDURL;
@@ -38,7 +39,7 @@ const ListVideos = () => {
             <ToastContainer />
 
             <h5 className="videos-heading">Videos</h5>
-
+{/* 
             <div className="list-video-div">
 
                 {uploadedVideos.map((video) => (
@@ -49,7 +50,7 @@ const ListVideos = () => {
                 ))}
 
 
-            </div>
+            </div> */}
 
 
 
