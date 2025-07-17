@@ -1,5 +1,4 @@
-//import ReactPlayer from "react-player"
-
+import ReactPlayer from "react-player"
 import { useState } from "react";
 import uploadImage from "../assets/uploadimg.png"
 import { ToastContainer, toast } from "react-toastify";
@@ -9,7 +8,6 @@ import "./AdminVideoUpload.css"
 const BACKENDURL = import.meta.env.BACKENDURL;
 
 const AdminVideosUpload = () => {
-
 
   const [selectedFiles, setSelectedFiles] = useState([]);
   const [previews, setPreviews] = useState([]);
@@ -137,12 +135,12 @@ const AdminVideosUpload = () => {
           {previews.map((preview, index) => (
             <div key={index} className="preview-item-vid">
               <h3 onClick={() => handleRemove(index)} className='remove-btn-vid'>X</h3>
-              {/* <ReactPlayer className="preview-item-video"
+              <ReactPlayer className="preview-item-video"
                 url={preview}
                 controls={true}
                
 
-              /> */}
+              />
 
               {/* <p>{selectedFiles[index].name}</p> */}
             </div>
@@ -150,14 +148,14 @@ const AdminVideosUpload = () => {
 
         </div>
         <hr className='image-line-vid'></hr>
-{/* 
+
         <button
           type="submit"
           className="videouploadbtn"
           disabled={isUploading || selectedFiles.length === 0}
         >
           {isUploading ? 'Please wait images is Uploading...' : 'Upload Images'}
-        </button> */}
+        </button>
       </form>
       {/* Uploaded Images */}
       <h3>Uploaded Videos ({uploadedVideos.length})</h3>
@@ -166,16 +164,16 @@ const AdminVideosUpload = () => {
         {uploadedVideos.map(videos=> (
 
           <div key={videos._id} className="gallery-item-vid">
-{/* 
+
             <button
               className="videos-remove-btn2"
               onClick={() => handleDelete(videos._id)}
               title="Delete image"
             >
               &times;
-            </button> */}
+            </button>
 
-            {/* <ReactPlayer className='gallery-itemvideos' url={videos.videoUrl} controls={true} alt={`Uploaded ${videos.cloudinaryId}`} /> */}
+            <ReactPlayer className='gallery-itemvideos' url={videos.videoUrl} controls={true} alt={`Uploaded ${videos.cloudinaryId}`} />
 
           </div>
         ))}
