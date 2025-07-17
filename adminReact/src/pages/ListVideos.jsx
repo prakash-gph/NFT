@@ -66,7 +66,7 @@ const ListVideos = () => {
                             &times;
                         </button>
 
-                        <ReactPlayer src={video.videoUrl} controls={true}  className="video"/>
+                        <ReactPlayer url={video.videoUrl} controls={true}  className="video"/>
                     </div>
 
                 ))}

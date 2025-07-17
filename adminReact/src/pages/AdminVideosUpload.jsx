@@ -136,7 +136,7 @@ const AdminVideosUpload = () => {
             <div key={index} className="preview-item-vid">
               <h3 onClick={() => handleRemove(index)} className='remove-btn-vid'>X</h3>
               <ReactPlayer className="preview-item-video"
-                src={preview}
+                url={preview}
                 controls={true}
                
 
@@ -173,7 +173,7 @@ const AdminVideosUpload = () => {
               &times;
             </button>
 
-            <ReactPlayer className='gallery-itemvideos' src={videos.videoUrl} controls={true} alt={`Uploaded ${videos.cloudinaryId}`} />
+            <ReactPlayer className='gallery-itemvideos' url={videos.videoUrl} controls={true} alt={`Uploaded ${videos.cloudinaryId}`} />
 
           </div>
         ))}
