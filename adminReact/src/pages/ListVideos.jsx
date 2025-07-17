@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { useEffect } from "react";
 import axios from "axios";
-import "./Events.css"
+import "./ListVideo.css"
 import { ToastContainer, toast } from 'react-toastify';
 import ReactVideo from "react-player"
 
@@ -51,12 +51,21 @@ const ListVideos = () => {
         <div>
             <ToastContainer />
 
-            <h5 className="videos-heading">Videos</h5>
+            <h1 className="list-video-divh1">{uploadedVideos.length === 1 ? "Total video: " + uploadedVideos.length : "Total videos: " + uploadedVideos.length}</h1>
 
             <div className="list-video-div">
 
                 {uploadedVideos.map((video) => (
                     <div key={video._id} className="video-gallery-items">
+
+                        <button
+                            className="video-remove-btn3"
+                            onClick={() => handleDelete(video._id)}
+                            title="Delete videos"
+                        >
+                            &times;
+                        </button>
+
                         <ReactVideo src={video.videoUrl} controls={true}  className="video"/>
                     </div>
 

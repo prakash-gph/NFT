@@ -10,6 +10,7 @@ const BACKENDURL = import.meta.env.BACKENDURL;
 console.log(BACKENDURL)
 
 const AdminImageUpload = () => {
+  
   const [selectedFiles, setSelectedFiles] = useState([]);
   const [previews, setPreviews] = useState([]);
   const [uploadedImages, setUploadedImages] = useState([]);

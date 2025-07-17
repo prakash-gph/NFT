@@ -4,6 +4,7 @@ import Login from '../pages/Adminlogin'
 import AdminNavbar from '../pages/AdminNavbar'
 import AdminSidebar from '../pages/AdminSidebar'
 import AdminImageUpload from '../pages/AdminImageUpload'
+import ListVideos from '../pages/ListVideos'
 import { useEffect, useState } from 'react'
 import AdminVideosUpload from '../pages/AdminVideosUpload'
 import ListImages from "../pages/ListImages"
@@ -44,6 +45,7 @@ const Components = () => {
                                 <Route path='/Upload-images' element={<AdminImageUpload />} />
                                 <Route path='/List-Images' element={<ListImages />}></Route>
                                 <Route path='/Upload-videos' element={<AdminVideosUpload />} />
+                                <Route path='/List-videos' element={<ListVideos/>}/>
                             </Routes>
 
                         </div>

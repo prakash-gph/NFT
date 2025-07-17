@@ -38,7 +38,7 @@ const AdminSidebar = () => {
             </div>
 
             <div className="adminsidebar-seconddiv">
-                <NavLink className="adminsidebar-nav" to="/Upload-Videos">
+                <NavLink className="adminsidebar-nav" to="/List-Videos">
                     <img src={list} alt="image" /><p>List Videos</p>
                 </NavLink>
             </div>

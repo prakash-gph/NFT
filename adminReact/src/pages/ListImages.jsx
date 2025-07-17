@@ -20,6 +20,7 @@ console.log(BACKENDURL)
         const response = await axios.get(`${BACKENDURL}/api/images/image-get`);
         setUploadedImages(response.data);
 
+       
       } catch (error) {
         toast.error('Error fetching images:', error);
       }
@@ -44,6 +45,7 @@ console.log(BACKENDURL)
     }
   };
 
+  console.log(uploadedImages)
 
   return (
     <div>

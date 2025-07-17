@@ -25,13 +25,12 @@ app.use(cors())
 app.use("/api", routers);
 app.use("/api", volunteerRouters)
 app.use("/api", adminLogin)
-
 app.use("/api/images",imageUpload);
 app.use("/api/images", imageGet);
-app.use("api/images",imageDelete);
-app.use(videosUpload);
-app.use(videoGet);
-app.use(videoDelete);
+app.use("/api/videos",imageDelete);
+app.use("/api/videos",videosUpload);
+app.use("/api/videos",videoGet);
+app.use("/api/videos",videoDelete);
 
   connectedCloudinary()
  app.use((err, req, res, next) => {

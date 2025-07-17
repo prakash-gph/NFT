@@ -6,7 +6,7 @@ import cloudinary from "cloudinary"
 
 const imageRouter = express.Router()
 
-export const imageUpload = imageRouter.post('/image-post',parser.array('images', 5), async (req, res) => {
+export const imageUpload = imageRouter.post('/image-post', parser.array('images', 5), async (req, res) => {
   try {
     if (!req.files || req.files.length === 0) {
       return res.status(400).json({ success: false, message: 'No images uploaded' });
@@ -30,7 +30,7 @@ export const imageUpload = imageRouter.post('/image-post',parser.array('images',
 });
 
 // GET Endpoint - Retrieve all images
-export const imageGet = imageRouter.get('/image-get',async (req, res) => {
+export const imageGet = imageRouter.get('/image-get', async (req, res) => {
 
   try {
     const images = await adminUploadImageVideo.find().sort({ createdAt: -1 });
@@ -41,7 +41,7 @@ export const imageGet = imageRouter.get('/image-get',async (req, res) => {
 });
 
 // DELETE Endpoint - Delete image
-export const imageDelete = imageRouter.delete('/image-delete/:id',async (req, res) => {
+export const imageDelete = imageRouter.delete('/image-delete/:id', async (req, res) => {
   try {
 
     const image = await adminUploadImageVideo.findById(req.params.id);
@@ -49,7 +49,7 @@ export const imageDelete = imageRouter.delete('/image-delete/:id',async (req, re
     if (!image) {
       return res.status(404).json({ success: false, message: 'Image not found' });
     }
-    console.log(image)
+
 
     await cloudinary.uploader.destroy(image.publicId);
 
@@ -63,10 +63,9 @@ export const imageDelete = imageRouter.delete('/image-delete/:id',async (req, re
   }
 });
 
-export const videosUpload = imageRouter.post('/api/video-upload/video-post',videoUpload.single('video'), async (req, res) => {
+export const videosUpload = imageRouter.post('/video-post', videoUpload.single('video'), async (req, res) => {
   try {
 
-    console.log(req.file.path, req.body.title, req.file.filename)
 
     const newVideo = await new Video({
       title: req.body.title,
@@ -84,14 +83,14 @@ export const videosUpload = imageRouter.post('/api/video-upload/video-post',vide
 });
 
 
-export const videoGet = imageRouter.get('/api/video-upload/video-post',async (req, res) => {
+export const videoGet = imageRouter.get('/video-get', async (req, res) => {
 
   try {
 
     const videoFind = await Video.find().sort({ createdAt: -1 });
 
-    console.log(videoFind)
-    res.json({ videoFind })
+
+    res.json(videoFind)
 
   } catch (error) {
     res.json({ successfull: false, message: error })
@@ -99,15 +98,15 @@ export const videoGet = imageRouter.get('/api/video-upload/video-post',async (re
 })
 
 
-export const videoDelete = imageRouter.delete('/api/video-upload/video-delete/:id',async (req, res) => {
+export const videoDelete = imageRouter.delete('/video-delete/:id', async (req, res) => {
 
   try {
 
     const videoId = await Video.findById(req.params.id)
+    
+    const result = await cloudinary.uploader.destroy(videoId.cloudinaryId, { resource_type: 'video', invalidate: true })
 
-
-    await cloudinary.uploader.destroy(videoId.cloudinaryId)
-
+  
     await Video.deleteOne({ _id: req.params.id })
 
     console.log("successfully deleted videos")
@@ -117,6 +116,7 @@ export const videoDelete = imageRouter.delete('/api/video-upload/video-delete/:i
   catch (error) {
 
     console.log(error)
+    
     res.json({ success: false, message: error })
 
   }
