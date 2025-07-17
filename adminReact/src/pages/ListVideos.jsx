@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import axios from "axios";
 import "./ListVideo.css"
 import { ToastContainer, toast } from 'react-toastify';
-import ReactVideo from "react-player"
+import ReactPlayer from "react-player"
 
 const BACKENDURL = import.meta.env.BACKENDURL;
 
@@ -66,7 +66,7 @@ const ListVideos = () => {
                             &times;
                         </button>
 
-                        <ReactVideo src={video.videoUrl} controls={true}  className="video"/>
+                        <ReactPlayer src={video.videoUrl} controls={true}  className="video"/>
                     </div>
 
                 ))}

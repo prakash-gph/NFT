@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import axios from "axios";
 import "./Events.css"
 import { ToastContainer, toast } from 'react-toastify';
-import ReactVideo from "react-player"
+import ReactPlayer from "react-player"
 
 const BACKENDURL = import.meta.env.BACKENDURL;
 
@@ -33,20 +33,6 @@ const ListVideos = () => {
 
 
 
-    const handleDelete = async (id) => {
-        try {
-
-            const response = await axios.delete(`${BACKENDURL}/api/videos/video-delete/${id}`);
-            setUploadedVideos(prev => prev.filter(img => img._id !== id));
-
-            response.data.success ? toast.success(response.data.message) : toast.error(response.data.message)
-        } catch (error) {
-            toast.error('Delete failed:', error);
-        }
-    };
-
-
-
     return (
         <div>
             <ToastContainer />
@@ -57,7 +43,7 @@ const ListVideos = () => {
 
                 {uploadedVideos.map((video) => (
                     <div key={video._id} className="video-gallery-items">
-                        <ReactVideo src={video.videoUrl} controls={true}  className="video"/>
+                        <ReactPlayer src={video.videoUrl} controls={true}  className="video"/>
                     </div>
 
                 ))}
