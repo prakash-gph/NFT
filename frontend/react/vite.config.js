@@ -10,6 +10,11 @@ export default defineConfig({
     envCompatible()],
     resolve: {
     extensions: ['.js', '.jsx', '.css']  // Add .css
+  },
+   build: {
+    rollupOptions: {
+      external: ['react-player'] 
+    }
   }
   
 })
