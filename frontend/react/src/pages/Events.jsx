@@ -1,11 +1,11 @@
-
+import ReactPlayer from "react-player"
 import { useState } from "react";
 import { useEffect } from "react";
 import axios from "axios";
 import "./Events.css"
 import { ToastContainer, toast } from 'react-toastify';
 
-import ReactPlayer from "react-player"
+
 
 const BACKENDURL = import.meta.env.BACKENDURL;
 
@@ -17,7 +17,7 @@ const ListVideos = () => {
 
     //Fetch images on component mount
     useEffect(() => {
-        const fetchImages = async () => {
+        const fetchVideos = async () => {
             try {
                 const response = await axios.get(`${BACKENDURL}/api/videos/video-get`);
                 setUploadedVideos(response.data);
@@ -26,7 +26,7 @@ const ListVideos = () => {
                 toast.error('Error fetching videos:', error);
             }
         };
-        fetchImages();
+        fetchVideos();
     }, []);
     console.log(uploadedVideos)
 
@@ -39,7 +39,7 @@ const ListVideos = () => {
             <ToastContainer />
 
             <h5 className="videos-heading">Videos</h5>
-{/* 
+
             <div className="list-video-div">
 
                 {uploadedVideos.map((video) => (
@@ -50,7 +50,7 @@ const ListVideos = () => {
                 ))}
 
 
-            </div> */}
+            </div>
 
 
 
