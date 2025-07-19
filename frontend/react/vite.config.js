@@ -6,13 +6,14 @@ import envCompatible from "vite-plugin-env-compatible"
 export default defineConfig({
   // base:'/react/',
   envPrefix: "BACKENDURL",
+
+    optimizeDeps: {
+    include: ['swiper/react'],
+  },
    rollupOptions: {
-    external: ['react-player','swiper/react'] ,
+    external: ['react-player']
      
   },
-  // rollupOption: {
-  //     externals: ['swiper/react'] 
-  // },
   plugins: [react(),
   envCompatible()],
   resolve: {
