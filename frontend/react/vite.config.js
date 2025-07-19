@@ -7,13 +7,15 @@ export default defineConfig({
   // base:'/react/',
   envPrefix: "BACKENDURL",
 
-    optimizeDeps: {
-    include: ['swiper/react'],
-  },
+  //   optimizeDeps: {
+  //   include: ['swiper/react'],
+  // },
+  build:{
+
    rollupOptions: {
-    external: ['react-player']
+    external: ['react-player , swiper/react']
      
-  },
+  }},
   plugins: [react(),
   envCompatible()],
   resolve: {
