@@ -8,6 +8,9 @@ export default defineConfig({
   envPrefix: "BACKENDURL",
    rollupOptions: {
     external: ['react-player'] ,
+     
+  },
+  rollupOption: {
       externals: ['swiper/react'] 
   },
   plugins: [react(),
