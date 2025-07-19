@@ -26,17 +26,20 @@
 
 .image-overlay {
   position: absolute;
-  bottom: 0;
+  bottom: 0px;
   left: 0;
   right: 0;
+  top: 90px;
   background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
   padding: 20px;
   opacity: 0;
   transition: opacity 0.3s ease;
+  
 }
 
 .image-title {
-  color: rgb(0, 255, 17);
+ font-weight: 900;
+  color: white
 }
 
 .gallery-item:hover .image-overlay {
@@ -81,9 +84,13 @@
   .gallery-item:hover {
     transform: scale(1.1);
   }
+  .image-overlay{
+    top: 30px;
+    font-size: small;
+  }
 
   .image-title {
-    display: none;
+   margin-bottom: 10px;
   }
 
 }

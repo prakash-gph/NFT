@@ -26,6 +26,7 @@ const Volunteer = () => {
         const { name, email, mobile, city, message } = data;
 
         console.log(name, email)
+        
         if (!name || !email || !mobile || !city || !message) {
             return toast.warning("Please fill out all fields.");
         }

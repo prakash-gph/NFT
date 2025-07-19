@@ -5,7 +5,7 @@ import axios from "axios";
 import "./ListVideo.css"
 import { ToastContainer, toast } from 'react-toastify';
 
- import ReactPlayer from "react-player"
+import ReactPlayer from "react-player"
 
 const BACKENDURL = import.meta.env.BACKENDURL;
 
@@ -67,7 +67,12 @@ const ListVideos = () => {
                             &times;
                         </button>
 
-                        <ReactPlayer url={video.videoUrl} controls={true}  className="video"/>
+                        <ReactPlayer url={video.videoUrl} controls={true} className="video" />
+
+
+                        <div className="list-videos-date">
+                            <h2>Date: {video.createdAt}</h2>
+                        </div>
                     </div>
 
                 ))}

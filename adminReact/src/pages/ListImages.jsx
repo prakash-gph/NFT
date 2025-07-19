@@ -9,7 +9,7 @@ const BACKENDURL = import.meta.env.BACKENDURL;
 
 const ListImages = () => {
 
-console.log(BACKENDURL)
+  console.log(BACKENDURL)
 
   const [uploadedImages, setUploadedImages] = useState([])
 
@@ -20,13 +20,14 @@ console.log(BACKENDURL)
         const response = await axios.get(`${BACKENDURL}/api/images/image-get`);
         setUploadedImages(response.data);
 
-       
+
       } catch (error) {
         toast.error('Error fetching images:', error);
       }
     };
     fetchImages();
   }, []);
+
 
 
   console.log(new Date().toLocaleDateString(), new Date().toLocaleTimeString() + " date")
@@ -68,8 +69,11 @@ console.log(BACKENDURL)
 
             <img src={image.url}></img>
 
-            {/* <h5> Date : {new Date().toLocaleDateString()} </h5> */}
-            {/* <h6>Time : {new Date().toLocaleTimeString()}</h6> */}
+            <div className="list-images-Date">
+              <h4> Date : {image.createdAt} </h4>
+            </div>
+
+
           </div>
 
         )}

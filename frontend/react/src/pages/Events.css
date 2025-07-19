@@ -1,6 +1,6 @@
-.videos-heading{
-  text-align: center;
-  margin-bottom: 50px;
+.videos-heading {
+    text-align: center;
+    margin: 50px 0px;
 }
 
 
@@ -36,6 +36,12 @@
 
 @media (max-width: 820px) {
 
+    .videos-heading {
+
+        margin: 120px 0px 50px;
+    }
+
+
     .video-gallery-items .video {
 
         width: 200px !important;
@@ -44,10 +50,16 @@
 
     }
 
+    .public-video-list h2 {
+        font-size: small;
+    }
+
 }
 
 
 @media (max-width: 523px) {
+
+
 
     .video-gallery-items .video {
 
@@ -76,4 +88,3 @@
 
     }
 }
-

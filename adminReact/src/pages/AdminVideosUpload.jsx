@@ -14,6 +14,8 @@ const AdminVideosUpload = () => {
   const [uploadedVideos, setUploadedVideos] = useState([]);
   const [isUploading, setIsUploading] = useState(false);
 
+  const [description, setDescription] = useState("")
+
   const handleFileChange = (e) => {
     const files = Array.from(e.target.files);
     setSelectedFiles(files);
@@ -24,7 +26,7 @@ const AdminVideosUpload = () => {
   };
 
   const handleRemove = (removeIndex) => {
-   
+
 
     const updateFiles = selectedFiles.filter((_, index) => index !== removeIndex)
 
@@ -37,18 +39,20 @@ const AdminVideosUpload = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    //  if (!description) return toast.error(" Please fill the Description")
     if (selectedFiles.length === 0) return;
 
     setIsUploading(true);
-   
+
     try {
       const formData = new FormData();
       selectedFiles.forEach(file => {
-       
+        // formData.append('description', description)
         formData.append('video', file);
       });
 
-      
+
       const response = await axios.post(`${BACKENDURL}/api/videos/video-post`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
@@ -73,11 +77,12 @@ const AdminVideosUpload = () => {
 
       setUploadedVideos(prev => [...newVideos, ...prev]);
 
-    
+
 
       // Reset form
       setSelectedFiles([]);
       setPreviews([]);
+      setDescription("")
       toast.success("Upload Successfully ")
     } catch (error) {
       console.log(error)
@@ -107,7 +112,7 @@ const AdminVideosUpload = () => {
 
   return (
     <div>
-      <h1 className="vid-upload-heading">Admin upload video page</h1>
+      <h1 className="vid-upload-heading">Admin upload videos page</h1>
       <ToastContainer></ToastContainer>
 
       <form onSubmit={handleSubmit}>
@@ -127,6 +132,9 @@ const AdminVideosUpload = () => {
               <h3>{previews.length === 1 ? "Selected video: " + previews.length : "Selected videos: " + previews.length}</h3>
             </label>
           </div>
+          {/* 
+          <label>Description:</label>
+          <input type='text' name='description' value={description} onChange={(e) => setDescription(e.target.value)} onSubmit={handleSubmit}></input> */}
 
           <hr className='image-line-vid'></hr>
         </div>
@@ -138,7 +146,6 @@ const AdminVideosUpload = () => {
               <ReactPlayer className="preview-item-video"
                 url={preview}
                 controls={true}
-               
 
               />
 
@@ -154,14 +161,14 @@ const AdminVideosUpload = () => {
           className="videouploadbtn"
           disabled={isUploading || selectedFiles.length === 0}
         >
-          {isUploading ? 'Please wait images is Uploading...' : 'Upload Images'}
+          {isUploading ? 'Please wait video is Uploading...' : 'Upload videos'}
         </button>
       </form>
       {/* Uploaded Images */}
       <h3>Uploaded Videos ({uploadedVideos.length})</h3>
       <div className="Uploaded-videos-views">
 
-        {uploadedVideos.map(videos=> (
+        {uploadedVideos.map(videos => (
 
           <div key={videos._id} className="gallery-item-vid">
 
@@ -172,8 +179,13 @@ const AdminVideosUpload = () => {
             >
               &times;
             </button>
+           
+              <ReactPlayer className='gallery-itemvideos' url={videos.videoUrl} controls={true} alt={`Uploaded ${videos.cloudinaryId}`} />
+            
 
-            <ReactPlayer className='gallery-itemvideos' url={videos.videoUrl} controls={true} alt={`Uploaded ${videos.cloudinaryId}`} />
+            <div className="uploaded-videos-date">
+              <h2>Date: {videos.createdAt}</h2>
+            </div>
 
           </div>
         ))}

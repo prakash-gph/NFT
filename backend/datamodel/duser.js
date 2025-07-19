@@ -57,9 +57,10 @@ export const adminResetPassword = mongoose.model("adminSendOtp", adminSendOtp)
 */
 const adminImageVideos = new mongoose.Schema({
 
+    // description: { type:String, require: true },
     url: { type: String, required: true },
     publicId: { type: String, required: true },
-    createdAt: { type: Date, default: Date.now }
+    createdAt: { type:String, default: new Date().toLocaleDateString() }
 
 })
 
@@ -67,9 +68,9 @@ export const adminUploadImageVideo = mongoose.model("adminUploadImageVideo", adm
 
 
 const videoSchema = new mongoose.Schema({
-    title: { type: String, require: true },
+    // description: { type: String, require: true },
     videoUrl: { type: String, require: true },
     cloudinaryId: { type: String, require: true },
-    createdAt: { type: Date, default: Date.now }
+    createdAt: { type:String , default: new Date().toLocaleDateString() }
 });
 export const Video = mongoose.model('Video', videoSchema);

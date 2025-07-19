@@ -39,7 +39,8 @@ const Gallery = () => {
 
       <div className="gallery-container">
 
-        {uploadedImages.map((image) => (
+{uploadedImages.map((image) => (
+        
           <div
             key={image._id}
             className="gallery-item"
@@ -51,15 +52,18 @@ const Gallery = () => {
               className="gallery-image"
             />
             <div className="image-overlay">
-              <p className="image-title">{image.title}</p>
+              <p className="image-title">Date:{image.createdAt}</p>
             </div>
           </div>
-        ))}
+ ))}
+
         {selectedImg && (
           <Lightbox image={selectedImg} onClose={() => setSelectedImg(null)} />
         )}
       </div>
 
+      
+ 
     </div>
 
 

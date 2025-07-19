@@ -34,8 +34,9 @@
 
         width: 200px !important;
         height: 110px !important;
-
-
+    }
+     .list-videos-date h2{
+      font-size:smaller;
     }
 
 }

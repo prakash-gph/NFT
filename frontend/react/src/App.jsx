@@ -17,6 +17,7 @@ import Mission from './pages/Mission'
 import Board from './pages/Board'
 import Gallery from './pages/Gallery'
 import Bank from './pages/Bank'
+import Books from './pages/Books';
 // import Reports from './pages/Reports'
 import PdfView from './pages/PdfView'
 
@@ -38,6 +39,7 @@ function App() {
                   <Route path="/Bank/:slug" element={<Bank />} />
                   {/* <Route path='Reports' element={<Reports />} /> */}
                   <Route path='PdfView' element={<PdfView />} />
+                  <Route path='/Books' element={<Books/>}/>
 
                   <Route path='*' element={<NotFound />} />
             </Route>

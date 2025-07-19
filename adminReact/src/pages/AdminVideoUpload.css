@@ -109,7 +109,7 @@
 
 .gallery-itemvideos {
     width: 300px;
-    border-radius: 15px;
+    border-radius: 50px;
 }
 
 @media(max-width:850px) {
@@ -130,7 +130,12 @@
         width: 200px !important;
         height: 110px !important;
     }
+    .uploaded-videos-date h2{
+      font-size:smaller;
+    }
 }
+
+
 
 @media (max-width: 523px) {
 

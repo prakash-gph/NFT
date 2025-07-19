@@ -1,227 +1,176 @@
-import { useState, useEffect } from 'react'
-import { Link } from "react-router-dom"
-import { ToastContainer} from "react-toastify";
-import "./Home.css"
+import { useState, useEffect } from 'react';
+import { Link } from "react-router-dom";
+
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination, Autoplay } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+
+import "./Home.css";
 
 function Home() {
-
   const slides = [
-
     { url: 'images/slide01.svg' },
     { url: 'images/slide1.svg' },
     { url: 'images/slide2.svg' },
     { url: 'images/slide3.svg' },
     { url: 'images/slide4.svg' },
     { url: 'images/slide5.svg' },
+  ];
 
+  const books = [
+
+    { image: "images/TK1.jpg", title: "திருக்குறள்" },
+    { image: "images/gita.jpg", title: "BHAGAVAD GEETA" },
+    { image: "images/bible.jpg", title: "THE HOLY BIBLE" },
+      { image: "images/quran.jpg", title: "THE QUR'AN" },
+    // { image: "images/book5.jpg", title: "Ignited Minds" },
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
+
   useEffect(() => {
-    const interval = setInterval(() => {
-      goToNext();
-    }, 3000);
+    const interval = setInterval(goToNext, 3000);
     return () => clearInterval(interval);
-  }, [currentIndex]);
+  }, []);
 
-
-  const goToPrevious = () => {
-    const isFirstSlide = currentIndex === 0;
-    const newIndex = isFirstSlide ? slides.length - 1 : currentIndex - 1;
-
-    setCurrentIndex(newIndex);
-  };
+  // const goToPrevious = () => {
+  //   const newIndex = currentIndex === 0 ? slides.length - 1 : currentIndex - 1;
+  //   setCurrentIndex(newIndex);
+  // };
 
   const goToNext = () => {
-    const isLastSlide = currentIndex === slides.length - 1;
-
-    const newIndex = isLastSlide ? 0 : currentIndex + 1;
-
+    const newIndex = currentIndex === slides.length - 1 ? 0 : currentIndex + 1;
     setCurrentIndex(newIndex);
   };
 
-  const goToSlide = (slideIndex) => {
-    setCurrentIndex(slideIndex);
-  };
+  // const goToSlide = (slideIndex) => {
+  //   setCurrentIndex(slideIndex);
+  // };
 
- 
   return (
-
     <div>
       <ToastContainer />
-      <div className="slides">
 
-        <div className="slider-container">
-          <div className="slider">
-            <div className="slides-container"
-              style={{ transform: `translateX(-${currentIndex * 100}%)` }}
-            >
-              {slides.map((slide, index) => (
-                <div
-                  className="slide"
-                  key={index}
-                  style={{ backgroundImage: `url(${slide.url})` }}
+<div className="slides">
+  <Swiper
+    modules={[Navigation, Pagination, Autoplay]}
+    spaceBetween={20}
+    slidesPerView={1}
+    loop={true}
+    autoplay={{ delay: 3000 }}
+    pagination={{ clickable: true }}
+    navigation={true}
+    className="mySwiper"
+  >
+    {slides.map((slide, index) => (
+      <SwiperSlide key={index}>
+        <img
+          src={slide.url}
+          alt={`Slide ${index}`}
+          className="swiper-slide-img"
+        />
+      </SwiperSlide>
+    ))}
+  </Swiper>
+</div>
 
-                ></div>
-              ))}
-            </div>
-          </div>
 
-          {/* Left Arrow */}
-          <div className="left-arrow" onClick={goToPrevious}>&#10094;</div>
+{/* Who We Are */}
+<div className="container my-5 mt-1">
+  <div className="row align-items-center">
+    {/* Left: Paragraph */}
+    <div className="col-lg-7 mb-4">
+      <h2 className="heading mb-3  text-orange">Who We Are</h2>
 
-          {/* Right Arrow */}
-          <div className="right-arrow" onClick={goToNext}>&#10095;</div>
+      <div className="about-section">
+        <p>
+          <strong>Nation's First Trust (NFT)</strong> is dedicated to transforming Bharat into a developed nation.
+          We strive to establish a solid foundation of trust through sustainable growth, inclusive development,
+          and empowered communities.
+        </p>
 
-          {/* Dots Indicator */}
-          <div className="dots-container">
-            {slides.map((_slide, slideIndex) => (
-              <div
-                className={`dot ${slideIndex === currentIndex ? 'active' : ''}`}
-                key={slideIndex}
-                onClick={() => goToSlide(slideIndex)}
-              ></div>
-            ))}
-          </div>
-        </div>
+        <p>
+          Bharat, a land of rich heritage and immense potential, is on the verge of a transformative journey.
+          NFT envisions harnessing its cultural strength to create a self-reliant, modern, and value-driven society.
+        </p>
+
+        <p>
+          As a registered Charitable Trust, NFT serves as a catalyst for revitalizing cultural sensitivity—
+          blending tradition with innovation for a brighter and stronger Bharat.
+        </p>
+
+        <h5 className="signature mt-3 text-end">– Nation's First Trust</h5>
       </div>
-
-
-
-      <div className="container">
-        <div className="row align-items-center">
-
-
-          <div className="container my-5 mt-2">
-            <div className="row align-items-center ">
-              {/* Paragraph Container (Left Side) */}
-              <div className="col-lg-5 mb-0 ">
-                <h2 className="heading mb-4 ms-1 ">Who We Are</h2>
-
-                <div className="intro-text ms-0  ">
-                  <p>
-                    Nation's First Trust (NFT) is dedicated to transforming Bharat into a developed nation.
-                    We aim to build a foundation of trust by focusing on sustainable growth, community empowerment, and innovation.
-                    Our initiatives are designed to enhance social welfare.
-                  </p>
-                </div>
-
-                <div className="vision-text ms-0 ">
-                  <p>
-                    Bharat, a land of rich heritage and immense potential, stands at the cusp of a new era.
-                    With its vibrant culture, diverse traditions, and strong values, it has long been a guiding light of selfless service
-                    and cultural strength. NFT envisions harnessing this strength to build a self-reliant and progressive nation.
-                  </p>
-                </div>
-
-                <div className="mission-text ms-0">
-                  <p>
-                    NATION'S FIRST TRUST is a registered Charitable Trust. NFT perceives its role as a catalyst in revitalizing cultural sensitivity,
-                    bridging tradition and modernity in today’s world.
-                  </p>
-                </div>
-
-                <h5 className="signature mt-0 text-end">- Nation's First Trust</h5>
-              </div>
-
-              {/* Image Container (Right Side) */}
-              <div className="col-lg-7 text-center">
-                <div className="custom-image-container mt-5">
-                  <img
-                    src="images/homein.png"
-                    alt="Who We Are"
-                    className="img-fluid rounded shadow"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div className="container1 ">
-
-        <div className='join-commu mt-0'>
-          <p> "Your small help can make a big difference Donate Now."</p>
-          <div className="d-flex flex-column justify-content-center   gap-5">
-
-            <Link className="btn-custom btn-custom-success heartbeat" to="/Donation">
-              Make a Donation🤍
-            </Link>
-            <Link className="btn-custom btn-custom-primary heartbeat" to="/Volunteer">
-              Become a Volunteer
-            </Link>
-
-          </div>
-        </div>
-
-
-        <div className="image-flex-container ">
-
-          <img
-            src="/images/homejoin.svg"
-            alt="Join Us Illustration"
-            className="responsive-image"
-          />
-
-        </div>
-
-      </div>
-
-
-
-      {/* 
-
-   {<div className="container2-discription ">Your kindness can spark a change,
-a small gift can lift a life.
-Donate today, inspire tomorrow.</div> } */}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      {/* testimonials ---------------------------------------------------------------------*/}
-
-
-
-
-      <div className="background-image mt-7">
-        <div className="backgroun-image-head mt-0">
-          <h5>Testimonials</h5>
-          <h2>Empowering Lives, Enriching Futures</h2>
-          <h4>Building a brighter future, together.</h4>
-        </div>
-      </div>
-
-      {/* <div className="input-head ">
-        <h6>Join Us</h6>
-        <h3>Sign up to hear from us about our new activities.</h3>
-      </div>
-
-      <div className="input-box">
-        <form onSubmit={onsubmit} autoComplete='off'>
-          <input className='btn1 ' type="text" placeholder='Enter Name' value={name}
-            onChange={((e) => (setname(e.target.value)))} />
-
-          <input className="btn2" type='Email' placeholder='Enter Email' value={email}
-            onChange={((e) => (setemail(e.target.value)))} />
-
-          <button onClick={onsubmit}>SUBMIT</button>
-        </form>
-      </div> */}
     </div>
+
+    {/* Right: Image */}
+    <div className="col-lg-5 text-center ">
+      <img
+        src="images/homein.png"
+        alt="Nation's First Trust"
+        className="img-fluid rounded shadow about-image"
+      />
+    </div>
+  </div>
+</div>
+
+{/* CTA Section */}
+<div className="cta-section">
+  <div className="cta-box">
+    
+    {/* Top Image */}
+    <img
+      src="/images/homejoin.svg"
+      alt="Make a Difference"
+      className="cta-image"
+    />
+
+    {/* Title and Subtitle */}
+    <h2 className="cta-title">
+      🌟 Make a Difference Today
+    </h2>
+    <p className="cta-subtitle">
+      Your small help can create a big impact. Join hands with us to build a Better Nation.
+    </p>
+
+    {/* Buttons Section */}
+    <div className="cta-buttons">
+      <a href="/Donation" className="btn-cta donate-btn">🤍   Make a Donation</a>
+      <a href="/Volunteer" className="btn-cta volunteer-btn">🤝 Become a Volunteer</a>
+    </div>
+  </div>
+</div>
+
+
+     {/* Books Showcase */}
+<div className="books-showcase mt-5">
+  <h2 className="text-center mb-4">Explore Holy Books</h2>
+  <div className="books-row">
+    {books.slice(0, 4).map((book, index) => (
+      <div key={index} className="book-item">
+        <div className="book-image-wrapper">
+          <img src={book.image} alt={book.title} className="book-img" />
+        </div>
+        <div className="book-info">
+          <h5 className="book-title">{book.title}</h5>
+          <p className="book-desc">
+           "Discover spiritual truths that empower action and deepen self-awareness".
+          </p>
+          <Link to="/Books" className="book-read-btn">Read More</Link>
+        </div>
+      </div>
+    ))}
+  </div>
+</div>
+
+
+    </div>
+    
   );
 }
 
-export default Home
+export default Home;

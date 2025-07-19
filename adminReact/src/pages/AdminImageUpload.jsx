@@ -10,11 +10,12 @@ const BACKENDURL = import.meta.env.BACKENDURL;
 console.log(BACKENDURL)
 
 const AdminImageUpload = () => {
-  
+
   const [selectedFiles, setSelectedFiles] = useState([]);
   const [previews, setPreviews] = useState([]);
   const [uploadedImages, setUploadedImages] = useState([]);
   const [isUploading, setIsUploading] = useState(false);
+  const [description, setDescription] = useState("")
 
   const handleFileChange = (e) => {
     const files = Array.from(e.target.files);
@@ -36,8 +37,16 @@ const AdminImageUpload = () => {
     setPreviews(updatePreviewsFiles)
   }
 
+
+
   const handleSubmit = async (e) => {
+
+
+
     e.preventDefault();
+
+    // if (!description) return toast.error(" Please fill the Description")
+
     if (selectedFiles.length === 0) return;
 
     setIsUploading(true);
@@ -46,11 +55,14 @@ const AdminImageUpload = () => {
       const formData = new FormData();
       selectedFiles.forEach(file => {
         formData.append('images', file);
+        // formData.append('description', description)
       });
-
+      console.log(formData.description)
       const response = await axios.post(`${BACKENDURL}/api/images/image-post`, formData, {
+
         headers: {
-          'Content-Type': 'multipart/form-data'
+          'Content-Type': 'multipart/form-data',
+
         }
       });
 
@@ -77,12 +89,12 @@ const AdminImageUpload = () => {
 
       setUploadedImages(prev => [...newImages, ...prev]);
 
-      console.log(response.data.success ? toast.success(response.data.message) : toast.error(response.data.message))
-
       // Reset form
       setSelectedFiles([]);
       setPreviews([]);
       toast.success("Upload Successfully ")
+      setDescription("")
+
     } catch (error) {
       console.log(error)
       toast.error('Upload failed:', error);
@@ -131,6 +143,12 @@ const AdminImageUpload = () => {
               <h3>{previews.length === 1 ? "Selected image: " + previews.length : "Selected images: " + previews.length}</h3>
             </label>
           </div>
+          <div className="image-description-box">
+{/* 
+            <label>Description:</label>
+            <input type='text' name='description' value={description} onChange={(e) => setDescription(e.target.value)} onSubmit={handleSubmit}></input> */}
+
+          </div>
 
           <hr className='image-line'></hr>
         </div>
@@ -167,7 +185,7 @@ const AdminImageUpload = () => {
         {uploadedImages.map(images => (
 
           <div key={images._id} className="gallery-item">
-            
+
             <button
               className="image-remove-btn2"
               onClick={() => handleDelete(images._id)}
@@ -176,6 +194,10 @@ const AdminImageUpload = () => {
               &times;
             </button>
             <img className='gallery-itemImage' src={images.url} alt={`Uploaded ${images.publicId}`} />
+            <div className='image-des-date'>
+              <h4> Date : {images.createdAt}</h4>
+              {/* <h5> Description: {images.description}</h5> */}
+            </div>
 
           </div>
         ))}

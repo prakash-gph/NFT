@@ -9,6 +9,10 @@
 .list-image-div img {
   width: 200px;
 }
+.list-images-Date{
+  display: flex;
+  justify-content: center;
+}
 
 .image-remove-btn3 {
   background-color: rgb(251, 4, 4);
@@ -33,6 +37,12 @@
   .list-image-div img {
     width: 120px;
   }
+  .list-images-Date h4{
+  font-size: small;
+  margin-left: 15px;
+  
+}
+
 }
 
 @media(max-width:400px) {

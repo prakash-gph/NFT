@@ -51,9 +51,9 @@ const Mission = () => {
                 className="img-fluid rounded-3 shadow-lg ms-1 " 
                 style={{ maxHeight: "600px", objectFit: "cover" }}
               />
-              <div className="image-caption mt-4  p-4  ">
+              <div className="image-caption mt-4  p-0  ">
                 <h5 className="text-primary mb-5 mt-2 ">
-                  Building a stronger Nation through collective action
+                  Building a stronger Nation through collective Action
                 </h5>
               </div>
             </div>

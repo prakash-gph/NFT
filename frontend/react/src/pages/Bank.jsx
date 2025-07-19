@@ -27,23 +27,26 @@ const Bank = () => {
           </div>
 
           <div className="info-card">
+            <p className="label">Account Holder: Nation's First Trust</p>
+    
             <p className="label">Account No: 333802010461947</p>
             <p className="value"></p>
               <p className="label">IFSC code: UBIN0533386</p>
             <p className="value">Branch Code: 533386</p>
              <p className="value">MICR Code: 635026103</p>
                <p className="value">Branch : Natrampalli </p>
+               <p className="value">Country : India </p>
           </div>
-
+{/* 
           <div className="info-card">
             <p className="label">Account Holder:</p>
             <p className="value">Nation's First Trust </p>
-          </div>
+          </div> */}
 
           <div className="info-card">
-            <p className="label">Contact Person:</p>
-            <p className="value"> Mr.S.Sampangi :-  +91 9952509559</p>
-                        <p className="value"> Mr. M. Ramesh  :-  +91 9597357250</p>
+            <p className="label">Contact Persons:</p>
+            <p className="value"> Mr. S.Sampangi :-  +91 9952509559</p>
+                        <p className="value"> Mr.  M. Ramesh  :-  +91 9597357250</p>
           </div>
 
           <p className="note">

@@ -44,7 +44,11 @@ const ListVideos = () => {
 
                 {uploadedVideos.map((video) => (
                     <div key={video._id} className="video-gallery-items">
-                        <ReactPlayer url={video.videoUrl} controls={true}  className="video"/>
+                        <ReactPlayer url={video.videoUrl} controls={true} className="video" />
+                        <div className="public-video-list">
+                            <h2>Date: {video.createdAt}</h2>
+                        </div>
+
                     </div>
 
                 ))}
