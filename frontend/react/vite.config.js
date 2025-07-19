@@ -10,8 +10,8 @@ export default defineConfig({
     external: ['react-player'] ,
      
   },
-  rollupOption: {
-      externals: ['swiper/react'] 
+  rollupOptions: {
+      external: ['swiper/react'] 
   },
   plugins: [react(),
   envCompatible()],
