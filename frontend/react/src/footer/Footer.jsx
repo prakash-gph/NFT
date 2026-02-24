@@ -19,16 +19,16 @@ const Footer = () => {
                                 <Link to='/Mission' className="text-white text-decoration-none hover-gold">Mission & Vision</Link>
                             </li>
                             <li className="mb-1">
-                                <Link to="/Project" className="text-white text-decoration-none hover-gold">Project</Link>
+                                <Link to="/Blog" className="text-white text-decoration-none hover-gold">Project</Link>
                             </li>
                             <li className="mb-1">
                                 <Link to='/Events' className="text-white text-decoration-none hover-gold">Events</Link>
                             </li>
                             <li className="mb-1">
-                                <Link to="/Become a volunteer" className="text-white text-decoration-none hover-gold">Become a Volunteer</Link>
+                                <Link to="/Volunteer" className="text-white text-decoration-none hover-gold">Become a Volunteer</Link>
                             </li>
                             <li className="mb-1">
-                                <Link to='/Documents' className="text-white text-decoration-none hover-gold">Donate Now</Link>
+                                <Link to='/Donation' className="text-white text-decoration-none hover-gold">Donate Now</Link>
                             </li>
                         </ul>
                     </div>
@@ -66,14 +66,14 @@ const Footer = () => {
                         <h4 className="text-warning mb-3">Stay Updated</h4>
                         <p className="mb-3">Subscribe to our newsletter for the latest updates</p>
                         <div className="input-group">
-                            <input 
-                                type="email" 
-                                className="form-control" 
-                                placeholder="Your Email" 
+                            <input
+                                type="email"
+                                className="form-control"
+                                placeholder="Your Email"
                                 aria-label="Your Email"
                             />
-                            <button 
-                                className="btn btn-warning" 
+                            <button
+                                className="btn btn-warning"
                                 type="button"
                             >
                                 Subscribe

@@ -7,7 +7,7 @@ import cloudinary from "cloudinary"
 const imageRouter = express.Router()
 
 export const imageUpload = imageRouter.post('/image-post', parser.array('images', 5), async (req, res) => {
-             
+
   // const description = req.body.description;
 
   // console.log(description)
@@ -18,7 +18,7 @@ export const imageUpload = imageRouter.post('/image-post', parser.array('images'
     }
 
     const uploadedImages = await Promise.all(
-      req.files.map(async (file , index) => {
+      req.files.map(async (file, index) => {
         return await adminUploadImageVideo.create({
           // description:req.body.description[index],
           url: file.path,
@@ -107,10 +107,10 @@ export const videoDelete = imageRouter.delete('/video-delete/:id', async (req, r
   try {
 
     const videoId = await Video.findById(req.params.id)
-    
+
     const result = await cloudinary.uploader.destroy(videoId.cloudinaryId, { resource_type: 'video', invalidate: true })
 
-  
+
     await Video.deleteOne({ _id: req.params.id })
 
     console.log("successfully deleted videos")
@@ -120,9 +120,10 @@ export const videoDelete = imageRouter.delete('/video-delete/:id', async (req, r
   catch (error) {
 
     console.log(error)
-    
+
     res.json({ success: false, message: error })
 
   }
 })
+
 

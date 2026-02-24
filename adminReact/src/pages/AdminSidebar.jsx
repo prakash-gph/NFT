@@ -4,6 +4,7 @@ import uploadimage from "../assets/uploadimage.png"
 import uploadvideo from "../assets/uploadvideo.svg"
 import list from "../assets/list.png"
 
+
 import { useEffect } from "react"
 
 
@@ -40,6 +41,11 @@ const AdminSidebar = () => {
             <div className="adminsidebar-seconddiv">
                 <NavLink className="adminsidebar-nav" to="/List-Videos">
                     <img src={list} alt="image" /><p>List Videos</p>
+                </NavLink>
+            </div>
+             <div className="adminsidebar-seconddiv">
+                <NavLink className="adminsidebar-nav" to="/Volunteer-datas">
+                    <img src={list} alt="image" /><p>List Volunteer Datas</p>
                 </NavLink>
             </div>
 

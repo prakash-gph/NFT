@@ -3,7 +3,7 @@ import dotenv from "dotenv";
 import connectdb from "./database/db.js"
 import cors from "cors"
 
-import { routers, volunteerRouters, adminLogin } from "./router/urouter.js";
+import { routers, volunteerRouters, adminLogin ,volunteerDatasGet, volunteerDataDelete } from "./router/urouter.js";
 
 
  import connectedCloudinary from "./nodemailer/cloudinary.js";
@@ -31,8 +31,11 @@ app.use("/api/videos",imageDelete);
 app.use("/api/videos",videosUpload);
 app.use("/api/videos",videoGet);
 app.use("/api/videos",videoDelete);
+app.use("/api/volunteer", volunteerDatasGet);
+app.use("/api/volunteer", volunteerDataDelete);
 
   connectedCloudinary()
+
  app.use((err, req, res, next) => {
 
     if (err instanceof multer.MulterError) {

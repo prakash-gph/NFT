@@ -9,6 +9,7 @@ import { useEffect, useState } from 'react'
 import AdminVideosUpload from '../pages/AdminVideosUpload'
 import ListImages from "../pages/ListImages"
 import ScrollToTop from '../pages/Scroll'
+import VolunteersDatasList from '../pages/VolunteersDatasList'
 
 
 
@@ -46,6 +47,7 @@ const Components = () => {
                                 <Route path='/List-Images' element={<ListImages />}></Route>
                                 <Route path='/Upload-videos' element={<AdminVideosUpload />} />
                                 <Route path='/List-videos' element={<ListVideos/>}/>
+                                <Route path='/Volunteer-datas' element={<VolunteersDatasList/>}/>
                             </Routes>
 
                         </div>

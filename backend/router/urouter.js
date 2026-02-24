@@ -1,7 +1,7 @@
 import express from "express"
 
 import dotenv from "dotenv";
-
+import mongoose from "mongoose";
 import { volunteerData} from "../datamodel/duser.js"
 
 import jwt from "jsonwebtoken"
@@ -113,6 +113,70 @@ export const volunteerRouters = router.post('/become-volunteer', async (req, res
         console.log("API ERRORS: " + error)
     }
 })
+
+export const volunteerDatasGet = router.get('/volunteer-datas-get', async (req, res) => {
+
+  try {
+
+    const volunteerDatas = await volunteerData.find().sort({ createdAt: -1 })
+    res.json(volunteerDatas)
+   
+  }
+  catch (error) {
+    res.json({ success: false, message: error })
+  }
+})
+
+export const volunteerDataDelete = router.delete("/volunteer-delete/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    //  Validate MongoDB ObjectId
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+      return res.status(400).json({
+        success: false,
+        message: "Invalid Volunteer ID",
+      });
+    }
+
+    //  Find and delete
+    const deletedVolunteer = await volunteerData.findByIdAndDelete(id);
+
+    //  If not found
+    if (!deletedVolunteer) {
+      return res.status(404).json({
+        success: false,
+        message: "Volunteer not found",
+      });
+    }
+
+    //  Success response
+    return res.status(200).json({
+      success: true,
+      message: "Volunteer deleted successfully",
+      data: deletedVolunteer,
+    });
+
+  } catch (error) {
+    console.error("Delete Volunteer Error:", error);
+
+    return res.status(500).json({
+      success: false,
+      message: "Server error while deleting volunteer",
+      error: error.message,
+    });
+  }
+});
+
+
+
+
+
+
+
+
+
+
 
 export const adminLogin = router.post('/adminLogin', async (req, res) => {
 
